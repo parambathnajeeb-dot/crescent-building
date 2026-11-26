@@ -1,4 +1,4 @@
-const CACHE_NAME = "crescent-building-v1";
+const CACHE_NAME = "crescent-building-v2";
 const ASSETS = ["./", "./index.html", "./manifest.json"];
 
 self.addEventListener("install", (event) => {

@@ -1,1315 +1,1959 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Crescent Building — Villiappally Commercial Manager</title>
- <link rel="manifest" href="manifest.json" />
-<meta name="theme-color" content="#0f172a" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
- 
-<style>
-  :root {
-    --bg: #f1f5f9;
-    --surface: #ffffff;
-    --surface-2: #f8fafc;
-    --navy: #0f172a;
-    --navy-light: #1e293b;
-    --text: #0f172a;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --emerald: #059669;
-    --emerald-bg: #ecfdf5;
-    --amber: #d97706;
-    --amber-bg: #fffbeb;
-    --red: #dc2626;
-    --red-bg: #fef2f2;
-    --indigo: #4f46e5;
-    --indigo-bg: #eef2ff;
-    --blue: #2563eb;
-    --blue-bg: #eff6ff;
-    --radius: 14px;
-    --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    padding-bottom: 84px;
-    line-height: 1.45;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Crescent Building — Villiappally Commercial Manager</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="./icon.png" />
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --surface-2: #f8fafc;
+      --navy: #0f172a;
+      --navy-light: #1e293b;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --emerald: #059669;
+      --emerald-bg: #ecfdf5;
+      --amber: #d97706;
+      --amber-bg: #fffbeb;
+      --red: #dc2626;
+      --red-bg: #fef2f2;
+      --indigo: #4f46e5;
+      --indigo-bg: #eef2ff;
+      --blue: #2563eb;
+      --blue-bg: #eff6ff;
+      --radius: 14px;
+      --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding-bottom: 88px;
+      line-height: 1.45;
+    }
+    button, select, input, textarea {
+      font-family: inherit;
+      touch-action: manipulation;
+    }
 
-  /* Header */
-  .topbar {
-    background: var(--navy);
-    color: #fff;
-    padding: 14px 16px 12px;
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    box-shadow: 0 4px 14px rgba(15,23,42,0.18);
-  }
-  .topbar-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .brand h1 { font-size: 17px; font-weight: 700; letter-spacing: -0.2px; }
-  .brand p { font-size: 11.5px; color: #94a3b8; margin-top: 1px; }
+    /* Header */
+    .topbar {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 16px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+    }
+    .topbar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .app-title { font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+    .app-sub { font-size: 12px; color: #94a3b8; margin-top: 2px; }
 
-  .role-switch {
-    display: inline-flex;
-    background: var(--navy-light);
-    padding: 3px;
-    border-radius: 10px;
-    border: 1px solid #334155;
-  }
-  .role-btn {
-    border: none;
-    background: transparent;
-    color: #cbd5e1;
-    font-size: 11.5px;
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .role-btn.active {
-    background: var(--emerald);
-    color: #fff;
-  }
-  .role-btn.active.abroad {
-    background: var(--blue);
-  }
+    .role-switch {
+      display: inline-flex;
+      background: var(--navy-light);
+      border-radius: 10px;
+      padding: 3px;
+      margin-top: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .role-btn {
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .role-btn.active {
+      background: var(--emerald);
+      color: #fff;
+    }
 
-  .header-controls {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    align-items: center;
-  }
-  .month-select {
-    background: var(--navy-light);
-    color: #fff;
-    border: 1px solid #334155;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 12.5px;
-    font-weight: 600;
-  }
-  .pill-btn {
-    background: var(--navy-light);
-    color: #e2e8f0;
-    border: 1px solid #334155;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-  .pill-btn.whatsapp { background: #15803d; border-color: #16a34a; color: #fff; }
-  .pill-btn.unlock { background: var(--amber); border-color: #f59e0b; color: #fff; }
+    .action-strip {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 11px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .action-strip::-webkit-scrollbar { display: none; }
+    .top-select, .top-btn {
+      border: none;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .top-select {
+      background: var(--navy-light);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .btn-wa { background: var(--emerald); color: #fff; }
+    .btn-pdf { background: var(--indigo); color: #fff; }
+    .btn-export { background: var(--blue); color: #fff; }
+    .btn-docs { background: var(--amber); color: #fff; }
+    .btn-dark { background: var(--navy-light); color: #e2e8f0; border: 1px solid rgba(255,255,255,0.12); }
 
-  /* Monitor Banner */
-  .monitor-banner {
-    background: var(--blue-bg);
-    border-bottom: 1px solid #bfdbfe;
-    color: #1e40af;
-    padding: 9px 16px;
-    font-size: 12.5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-  .hidden { display: none !important; }
+    /* Container & KPI Grid */
+    .container { max-width: 680px; margin: 0 auto; padding: 14px; }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .kpi-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 13px 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .kpi-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+    .kpi-val { font-size: 21px; font-weight: 800; margin: 4px 0 2px; color: var(--text); }
+    .kpi-val.emerald { color: var(--emerald); }
+    .kpi-val.amber { color: var(--amber); }
+    .kpi-val.indigo { color: var(--indigo); }
+    .kpi-sub { font-size: 11px; color: var(--muted); }
 
-  /* Container */
-  .container { max-width: 960px; margin: 0 auto; padding: 14px; }
+    /* Sections & Cards */
+    .sec-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 14px 0 10px;
+    }
+    .sec-title { font-size: 16px; font-weight: 800; color: var(--text); }
+    .sec-pill {
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 99px;
+    }
 
-  /* KPI Grid */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  @media (min-width: 680px) {
-    .kpi-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-  .kpi-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 12px;
-    box-shadow: var(--shadow);
-  }
-  .kpi-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
-  .kpi-val { font-size: 19px; font-weight: 800; margin-top: 4px; }
-  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .text-emerald { color: var(--emerald); }
-  .text-amber { color: var(--amber); }
-  .text-indigo { color: var(--indigo); }
+    .room-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      border-left: 4px solid #cbd5e1;
+    }
+    .room-card.st-due { border-left-color: var(--amber); }
+    .room-card.st-paid { border-left-color: var(--emerald); }
+    .room-card.st-partial { border-left-color: var(--blue); }
+    .room-card.st-family { border-left-color: var(--indigo); }
 
-  /* Section Headings */
-  .sec-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 16px 0 10px;
-  }
-  .sec-title { font-size: 14.5px; font-weight: 700; color: var(--navy); }
-  .sec-badge {
-    font-size: 11px;
-    background: #e2e8f0;
-    color: #334155;
-    padding: 3px 8px;
-    border-radius: 99px;
-    font-weight: 600;
-  }
+    .room-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .room-badge {
+      background: var(--navy);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    .status-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 8px;
+    }
+    .pill-due { background: var(--amber-bg); color: var(--amber); }
+    .pill-paid { background: var(--emerald-bg); color: var(--emerald); }
+    .pill-partial { background: var(--blue-bg); color: var(--blue); }
+    .pill-vacant { background: #f1f5f9; color: var(--muted); }
+    .pill-family { background: var(--indigo-bg); color: var(--indigo); }
 
-  /* Room Cards Grid */
-  .room-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 11px;
-  }
-  @media (min-width: 620px) {
-    .room-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  .room-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 13px;
-    box-shadow: var(--shadow);
-    border-left: 5px solid var(--muted);
-  }
-  .room-card.status-occupied { border-left-color: var(--emerald); }
-  .room-card.status-due { border-left-color: var(--amber); }
-  .room-card.status-vacant { border-left-color: #94a3b8; }
-  .room-card.status-family { border-left-color: var(--indigo); }
+    .room-name { font-size: 15px; font-weight: 800; color: var(--text); }
+    .room-tenant { font-size: 13px; color: var(--muted); margin-top: 1px; }
+    .room-rent { font-size: 13px; font-weight: 700; color: var(--text); margin-top: 8px; }
+    .room-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-  .room-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .room-id {
-    font-size: 13px;
-    font-weight: 800;
-    background: var(--navy);
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 7px;
-    display: inline-block;
-  }
-  .room-shop { font-size: 15px; font-weight: 700; margin-top: 5px; }
-  .room-tenant { font-size: 12.5px; color: var(--muted); }
+    .btn-row { display: flex; gap: 8px; margin-top: 11px; flex-wrap: wrap; }
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--emerald); color: #fff; }
+    .btn-navy { background: var(--navy); color: #fff; }
+    .btn-indigo { background: var(--indigo); color: #fff; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-danger { background: var(--red-bg); color: var(--red); }
+    .btn-outline { background: var(--surface); color: var(--text); border: 1px solid #cbd5e1; }
+    .btn-sm { padding: 6px 11px; font-size: 12px; }
 
-  .badge {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 99px;
-    white-space: nowrap;
-  }
-  .badge-paid { background: var(--emerald-bg); color: var(--emerald); }
-  .badge-due { background: var(--amber-bg); color: var(--amber); }
-  .badge-vacant { background: #f1f5f9; color: #475569; }
-  .badge-family { background: var(--indigo-bg); color: var(--indigo); }
+    /* Lists & Tables */
+    .panel {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .list-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .empty-box {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 22px 12px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 12px;
+      background: var(--surface-2);
+    }
 
-  .room-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 9px;
-    padding-top: 8px;
-    border-top: 1px dashed var(--border);
-    font-size: 12px;
-    color: #334155;
-  }
-  .room-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 11px;
-  }
-  .btn {
-    border: 1px solid var(--border);
-    background: var(--surface-2);
-    color: var(--text);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 7px 11px;
-    border-radius: 9px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .btn:active { transform: scale(0.98); }
-  .btn-primary { background: var(--navy); color: #fff; border-color: var(--navy); }
-  .btn-emerald { background: var(--emerald); color: #fff; border-color: var(--emerald); }
-  .btn-indigo { background: var(--indigo-bg); color: var(--indigo); border-color: #c7d2fe; }
-  .btn-amber { background: var(--amber-bg); color: var(--amber); border-color: #fde68a; }
-  .btn-danger { background: var(--red-bg); color: var(--red); border-color: #fecaca; }
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 45;
+      padding: 6px 4px;
+      box-shadow: 0 -2px 10px rgba(15, 23, 42, 0.05);
+    }
+    .nav-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 4px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .nav-btn.active {
+      background: var(--emerald-bg);
+      color: var(--emerald);
+    }
 
-  /* Cards & Lists */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px;
-    box-shadow: var(--shadow);
-    margin-bottom: 12px;
-  }
-  .list-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 11px 0;
-    border-bottom: 1px solid var(--border);
-    gap: 10px;
-  }
-  .list-row:last-child { border-bottom: none; }
+    /* Modals */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      z-index: 90;
+      padding: 14px;
+      overflow-y: auto;
+    }
+    .modal-backdrop.open { display: block; }
+    .modal-card {
+      max-width: 520px;
+      margin: 14px auto;
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
+    }
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .modal-title { font-size: 16px; font-weight: 800; }
+    .field { margin-bottom: 10px; }
+    .field label { display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 4px; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      font-size: 13px;
+      background: #fff;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
-  /* Forms */
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  @media (min-width: 560px) {
-    .form-grid-2 { grid-template-columns: repeat(2, 1fr); }
-  }
-  .field label {
-    display: block;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #334155;
-    margin-bottom: 4px;
-  }
-  .field input, .field select, .field textarea {
-    width: 100%;
-    padding: 9px 11px;
-    border: 1px solid #cbd5e1;
-    border-radius: 9px;
-    font-size: 13.5px;
-    background: #fff;
-    color: var(--text);
-  }
-  .field textarea { min-height: 64px; resize: vertical; }
-
-  .family-callout {
-    background: var(--indigo-bg);
-    border: 1px solid #c7d2fe;
-    border-radius: 10px;
-    padding: 11px;
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  /* Bottom Nav */
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    z-index: 45;
-    padding: 6px 4px;
-    box-shadow: 0 -2px 12px rgba(15,23,42,0.06);
-  }
-  .nav-btn {
-    border: none;
-    background: transparent;
-    color: var(--muted);
-    font-size: 11.5px;
-    font-weight: 700;
-    padding: 6px 4px;
-    border-radius: 9px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-  }
-  .nav-btn.active { color: var(--emerald); background: var(--emerald-bg); }
-
-  /* Modal */
-  .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.62);
-    z-index: 60;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  @media (min-width: 640px) {
-    .modal-backdrop { align-items: center; padding: 16px; }
-  }
-  .modal-box {
-    background: var(--surface);
-    width: 100%;
-    max-width: 560px;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 18px 18px 0 0;
-    padding: 16px;
-  }
-  @media (min-width: 640px) {
-    .modal-box { border-radius: 16px; }
-  }
-  .modal-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
-  }
-  .modal-title { font-size: 16px; font-weight: 800; }
-  .toast {
-    position: fixed;
-    top: 76px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--navy);
-    color: #fff;
-    padding: 9px 16px;
-    border-radius: 99px;
-    font-size: 12.5px;
-    font-weight: 600;
-    z-index: 90;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  }
-</style>
+    .toast {
+      position: fixed;
+      bottom: 76px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: #fff;
+      padding: 9px 16px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      z-index: 120;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    }
+    .toast.show { opacity: 1; }
+    .hidden { display: none !important; }
+  </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar-row">
-    <div class="brand">
-      <h1>Crescent Building</h1>
-      <p>Villiappally • 9 Commercial Rooms (4 GF + 5 FF)</p>
-    </div>
-    <div class="role-switch">
-      <button type="button" class="role-btn active" data-action="set-role" data-role="najeeba">Najeeba (On-Site)</button>
-      <button type="button" class="role-btn" data-action="set-role" data-role="najeeb">Najeeb (Abroad)</button>
-    </div>
-  </div>
-  <div class="header-controls">
-    <select id="monthSelect" class="month-select" aria-label="Billing Month"></select>
-    <button type="button" class="pill-btn whatsapp" data-action="send-report">WhatsApp Report</button>
-    <button type="button" class="pill-btn" data-action="open-collectors">Collectors</button>
-    <button type="button" class="pill-btn" data-action="open-backup">Backup / Sync</button>
-  </div>
-</header>
-
-<div id="monitorBanner" class="monitor-banner hidden">
-  <span><strong>Safe Monitor View (Najeeb):</strong> Read-only mode active.</span>
-  <button type="button" class="pill-btn unlock" data-action="unlock-edits">Enable Edits</button>
-</div>
-
-<main class="container">
-  <!-- KPI Strip -->
-  <section class="kpi-grid" id="kpiGrid"></section>
-
-  <!-- TAB 1: FLOOR PLAN -->
-  <section id="tab-floors">
-    <div class="sec-head">
-      <span class="sec-title">First Floor (5 Rooms)</span>
-      <span class="sec-badge">F1 – F5</span>
-    </div>
-    <div class="room-grid" id="firstFloorGrid"></div>
-
-    <div class="sec-head">
-      <span class="sec-title">Ground Floor (4 Road-Facing Rooms)</span>
-      <span class="sec-badge">G1 – G4</span>
-    </div>
-    <div class="room-grid" id="groundFloorGrid"></div>
-  </section>
-
-  <!-- TAB 2: RENT SHEET -->
-  <section id="tab-rent" class="hidden">
-    <div class="sec-head">
-      <span class="sec-title">Monthly Rent Ledger</span>
-      <button type="button" class="btn btn-emerald" data-action="mark-all-paid">Mark All Rented Paid</button>
-    </div>
-    <div class="card" id="rentLedgerList"></div>
-  </section>
-
-  <!-- TAB 3: TAXES & EXPENSES -->
-  <section id="tab-taxes" class="hidden">
-    <div class="sec-head">
-      <span class="sec-title">Panchayat Tax, KSEB & Repairs</span>
-      <button type="button" class="btn btn-primary" data-action="open-expense-modal">+ Add Bill / Tax</button>
-    </div>
-    <div class="card" id="expenseList"></div>
-  </section>
-
-  <!-- TAB 4: REMINDERS & ALERTS -->
-  <section id="tab-alerts" class="hidden">
-    <div class="sec-head">
-      <span class="sec-title">Rent & Agreement Alerts</span>
-    </div>
-    <div class="card" id="alertsList"></div>
-  </section>
-</main>
-
-<!-- Bottom Navigation -->
-<nav class="bottom-nav">
-  <button type="button" class="nav-btn active" data-action="switch-tab" data-tab="floors">Floor Plan</button>
-  <button type="button" class="nav-btn" data-action="switch-tab" data-tab="rent">Rent Sheet</button>
-  <button type="button" class="nav-btn" data-action="switch-tab" data-tab="taxes">Taxes & Bills</button>
-  <button type="button" class="nav-btn" data-action="switch-tab" data-tab="alerts">Alerts</button>
-</nav>
-
-<!-- ROOM DETAILS MODAL -->
-<div id="roomModal" class="modal-backdrop hidden">
-  <div class="modal-box">
-    <div class="modal-head">
-      <span class="modal-title" id="roomModalTitle">Edit Room</span>
-      <button type="button" class="btn" data-action="close-modal" data-modal="roomModal">Close</button>
-    </div>
-
-    <div id="familyConvertBox" class="family-callout hidden">
+  <header class="topbar">
+    <div class="topbar-row">
       <div>
-        <strong style="font-size:13px; color:#312e81;">Owner / Family Use (Rent-Free)</strong>
-        <div style="font-size:12px; color:#4338ca;">If no longer needed for family use, switch to commercial rent in one tap.</div>
+        <div class="app-title">Crescent Building</div>
+        <div class="app-sub" id="buildingSub">Villiappally • 9 Commercial Rooms (4 GF + 5 FF)</div>
       </div>
-      <button type="button" class="btn btn-primary" data-action="convert-family-to-rent">Open for Commercial Rent</button>
     </div>
 
-    <form id="roomForm" class="form-grid form-grid-2">
-      <input type="hidden" id="editRoomId" />
-      <div class="field">
-        <label>Room Status</label>
-        <select id="editStatus">
-          <option value="occupied">Occupied (Rented)</option>
-          <option value="vacant">Vacant (Available for Rent)</option>
-          <option value="family">Owner / Family Use (Rent-Free)</option>
-        </select>
+    <div class="role-switch" id="roleSwitch">
+      <button type="button" class="role-btn active" data-role="Najeeba">Najeeba (On-Site)</button>
+      <button type="button" class="role-btn" data-role="Najeeb">Najeeb (Abroad)</button>
+    </div>
+
+    <div class="action-strip">
+      <select id="monthSelect" class="top-select" aria-label="Billing Month"></select>
+      <button type="button" class="top-btn btn-wa" data-action="wa-report">WhatsApp Report</button>
+      <button type="button" class="top-btn btn-pdf" data-action="share-month-pdf">Share PDF</button>
+      <button type="button" class="top-btn btn-export" data-action="open-export">Export Range</button>
+      <button type="button" class="top-btn btn-docs" id="topDocsBtn" data-action="open-docs">Docs (0)</button>
+      <button type="button" class="top-btn btn-dark" data-action="open-add-room">+ Add Room</button>
+      <button type="button" class="top-btn btn-dark" data-action="open-collectors">Collectors</button>
+      <button type="button" class="top-btn btn-dark" data-action="open-backup">Backup / Sync</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpi-grid" id="kpiGrid"></section>
+
+    <!-- TAB 1: FLOOR PLAN -->
+    <section id="tab-floor"></section>
+
+    <!-- TAB 2: RENT SHEET -->
+    <section id="tab-rent" class="hidden"></section>
+
+    <!-- TAB 3: TAXES & BILLS -->
+    <section id="tab-bills" class="hidden"></section>
+
+    <!-- TAB 4: ALERTS -->
+    <section id="tab-alerts" class="hidden"></section>
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav">
+    <button type="button" class="nav-btn active" data-tab="floor">Floor Plan</button>
+    <button type="button" class="nav-btn" data-tab="rent">Rent Sheet</button>
+    <button type="button" class="nav-btn" data-tab="bills">Taxes &amp; Bills</button>
+    <button type="button" class="nav-btn" data-tab="alerts">Alerts</button>
+  </nav>
+
+  <!-- MODAL: LOG RENT -->
+  <div class="modal-backdrop" id="rentModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title" id="rentModalTitle">Log Rent Payment</div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="rentModal">Close</button>
       </div>
-      <div class="field">
-        <label>Shop / Business Name</label>
-        <input type="text" id="editShop" placeholder="e.g., City Supermarket" />
-      </div>
-      <div class="field">
-        <label>Tenant / Occupant Name</label>
-        <input type="text" id="editTenant" placeholder="e.g., Abdul Kareem" />
-      </div>
-      <div class="field">
-        <label>Phone Number (WhatsApp)</label>
-        <input type="tel" id="editPhone" placeholder="e.g., 9847012345" />
-      </div>
-      <div class="field">
-        <label>Monthly Rent (₹)</label>
-        <input type="number" id="editRent" min="0" step="100" />
-      </div>
-      <div class="field">
-        <label>Security Advance (₹)</label>
-        <input type="number" id="editAdvance" min="0" step="500" />
-      </div>
-      <div class="field">
-        <label>KSEB Consumer No.</label>
-        <input type="text" id="editKseb" placeholder="e.g., 116540012345" />
-      </div>
-      <div class="field">
-        <label>ID Proof / GST / Reg No.</label>
-        <input type="text" id="editIdProof" placeholder="Aadhaar / GST / Panchayat License" />
-      </div>
-      <div class="field">
-        <label>Agreement Start Date</label>
-        <input type="date" id="editStart" />
-      </div>
-      <div class="field">
-        <label>Agreement Expiry Date</label>
-        <input type="date" id="editExpiry" />
-      </div>
-      <div class="field" style="grid-column: 1 / -1;">
-        <label>Notes / Agreement Terms</label>
-        <textarea id="editNotes" placeholder="Water share, annual increment %, shutter repairs..."></textarea>
-      </div>
-      <div style="grid-column: 1 / -1; display:flex; gap:8px; justify-content:flex-end; margin-top:6px;">
-        <button type="button" class="btn" data-action="close-modal" data-modal="roomModal">Cancel</button>
-        <button type="submit" class="btn btn-primary" id="saveRoomBtn">Save Room Details</button>
-      </div>
-    </form>
+      <form id="rentForm">
+        <input type="hidden" id="rentRoomId" />
+        <div class="grid-2">
+          <div class="field">
+            <label>Amount Received (₹)</label>
+            <input type="number" id="rentAmount" required min="1" step="1" />
+          </div>
+          <div class="field">
+            <label>Payment Date</label>
+            <input type="date" id="rentDate" required />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Payment Mode</label>
+            <select id="rentMode">
+              <option value="UPI / GPay">UPI / GPay</option>
+              <option value="Cash">Cash</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Cheque">Cheque</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Collected By</label>
+            <select id="rentCollector"></select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Notes / Receipt Ref (Optional)</label>
+          <input type="text" id="rentNote" placeholder="e.g. GPay ref or partial note" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Rent Entry</button>
+      </form>
+    </div>
   </div>
-</div>
 
-<!-- LOG RENT MODAL -->
-<div id="rentModal" class="modal-backdrop hidden">
-  <div class="modal-box">
-    <div class="modal-head">
-      <span class="modal-title" id="rentModalTitle">Record Rent Payment</span>
-      <button type="button" class="btn" data-action="close-modal" data-modal="rentModal">Close</button>
+  <!-- MODAL: ROOM DETAILS / ASSIGN TENANT -->
+  <div class="modal-backdrop" id="roomModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title" id="roomModalTitle">Room Details</div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="roomModal">Close</button>
+      </div>
+      <form id="roomForm">
+        <input type="hidden" id="editRoomId" />
+        <div class="grid-2">
+          <div class="field">
+            <label>Unit / Shop Name</label>
+            <input type="text" id="editUnitName" required />
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select id="editStatus">
+              <option value="occupied">Occupied (Commercial Rent)</option>
+              <option value="vacant">Vacant (Available)</option>
+              <option value="family">Owner / Family Use (Rent-Free)</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Tenant Name</label>
+            <input type="text" id="editTenantName" placeholder="Leave blank if vacant" />
+          </div>
+          <div class="field">
+            <label>Tenant Phone (WhatsApp)</label>
+            <input type="tel" id="editTenantPhone" placeholder="e.g. 9847012345" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Monthly Rent (₹)</label>
+            <input type="number" id="editRent" min="0" step="100" required />
+          </div>
+          <div class="field">
+            <label>Security Deposit (₹)</label>
+            <input type="number" id="editDeposit" min="0" step="500" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Lease Start Date</label>
+            <input type="date" id="editLeaseStart" />
+          </div>
+          <div class="field">
+            <label>Lease Renewal / End Date</label>
+            <input type="date" id="editLeaseEnd" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Remarks / Agreement Notes</label>
+          <textarea id="editNotes" rows="2" placeholder="Shop business type, KSEB consumer no, agreement notes..."></textarea>
+        </div>
+        <div class="btn-row">
+          <button type="submit" class="btn btn-primary" style="flex:1;">Save Room Details</button>
+          <button type="button" id="deleteCustomRoomBtn" class="btn btn-danger hidden">Delete Room</button>
+        </div>
+      </form>
     </div>
-    <form id="rentForm" class="form-grid form-grid-2">
-      <input type="hidden" id="rentRoomId" />
-      <div class="field">
-        <label>Amount Received (₹)</label>
-        <input type="number" id="rentAmount" required min="0" />
+  </div>
+
+  <!-- MODAL: ADD NEW ROOM / EXTRA SPACE -->
+  <div class="modal-backdrop" id="addRoomModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Add New Room / Leasable Space</div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="addRoomModal">Close</button>
       </div>
-      <div class="field">
-        <label>Payment Date</label>
-        <input type="date" id="rentDate" required />
+      <form id="addRoomForm">
+        <div class="grid-2">
+          <div class="field">
+            <label>Room / Space Code *</label>
+            <input type="text" id="newRoomCode" required placeholder="e.g. S1, G5, Terrace, Signboard" maxlength="14" />
+          </div>
+          <div class="field">
+            <label>Floor / Section *</label>
+            <select id="newRoomFloor">
+              <option value="Ground Floor">Ground Floor</option>
+              <option value="First Floor">First Floor</option>
+              <option value="Second Floor">Second Floor</option>
+              <option value="Extra / Terrace / Exterior">Extra / Terrace / Exterior</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Unit Title *</label>
+          <input type="text" id="newRoomTitle" required placeholder="e.g. Second Floor Hall / Terrace Tower" />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Initial Status</label>
+            <select id="newRoomStatus">
+              <option value="vacant">Vacant</option>
+              <option value="occupied">Occupied (Rented)</option>
+              <option value="family">Owner / Family Use (Rent-Free)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Monthly Rent (₹)</label>
+            <input type="number" id="newRoomRent" value="8000" min="0" step="100" required />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Tenant Name (If occupied)</label>
+            <input type="text" id="newRoomTenant" placeholder="Optional" />
+          </div>
+          <div class="field">
+            <label>Tenant Phone</label>
+            <input type="tel" id="newRoomPhone" placeholder="Optional" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Add Room to Building</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD TAX / BILL / EXPENSE -->
+  <div class="modal-backdrop" id="billModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Record Panchayat Tax / Bill / Expense</div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="billModal">Close</button>
       </div>
-      <div class="field">
-        <label>Payment Mode</label>
-        <select id="rentMode">
-          <option value="UPI / GPay">UPI / GPay</option>
-          <option value="Cash">Cash</option>
-          <option value="Bank Transfer">Bank Transfer</option>
-        </select>
+      <form id="billForm">
+        <div class="grid-2">
+          <div class="field">
+            <label>Category</label>
+            <select id="billCategory">
+              <option value="Panchayat Building Tax">Panchayat Building Tax</option>
+              <option value="KSEB Electricity Bill">KSEB Electricity Bill</option>
+              <option value="Water / Cleaning">Water / Cleaning</option>
+              <option value="Maintenance / Repair">Maintenance / Repair</option>
+              <option value="Other Expense">Other Expense</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Amount Paid (₹)</label>
+            <input type="number" id="billAmount" required min="1" step="1" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Payment Date</label>
+            <input type="date" id="billDate" required />
+          </div>
+          <div class="field">
+            <label>Paid By</label>
+            <select id="billPaidBy"></select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Description / Receipt No.</label>
+          <input type="text" id="billDesc" required placeholder="e.g. Villiappally Panchayat Half-Year Tax" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Tax / Bill Entry</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: DATE-RANGE EXPORT (FROM DATE -> TO DATE) -->
+  <div class="modal-backdrop" id="exportModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title">Export Total Data (Date Range)</div>
+          <div style="font-size:12px;color:var(--muted);">Choose From Date and To Date for complete building records</div>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="exportModal">Close</button>
       </div>
-      <div class="field">
-        <label>Collected By</label>
-        <select id="rentCollector"></select>
+
+      <div class="btn-row" style="margin-top:0;margin-bottom:10px;">
+        <button type="button" class="btn btn-outline btn-sm" data-preset="this-month">This Month</button>
+        <button type="button" class="btn btn-outline btn-sm" data-preset="last-month">Last Month</button>
+        <button type="button" class="btn btn-outline btn-sm" data-preset="last-3m">Last 3 Months</button>
+        <button type="button" class="btn btn-outline btn-sm" data-preset="fy">This Year (2026)</button>
+        <button type="button" class="btn btn-outline btn-sm" data-preset="all">All Time</button>
       </div>
-      <div class="field" style="grid-column: 1 / -1;">
-        <label>Reference / Receipt Note</label>
-        <input type="text" id="rentRef" placeholder="UPI Ref / Receipt #" />
-      </div>
-      <div style="grid-column: 1 / -1; display:flex; gap:8px; justify-content:space-between; margin-top:6px;">
-        <button type="button" class="btn btn-danger" data-action="clear-rent-payment">Mark Unpaid</button>
-        <div style="display:flex; gap:8px;">
-          <button type="button" class="btn" data-action="close-modal" data-modal="rentModal">Cancel</button>
-          <button type="submit" class="btn btn-emerald">Save Payment</button>
+
+      <div class="grid-2">
+        <div class="field">
+          <label>From Date *</label>
+          <input type="date" id="exportFromDate" required />
+        </div>
+        <div class="field">
+          <label>To Date *</label>
+          <input type="date" id="exportToDate" required />
         </div>
       </div>
-    </form>
-  </div>
-</div>
 
-<!-- EXPENSE / TAX MODAL -->
-<div id="expenseModal" class="modal-backdrop hidden">
-  <div class="modal-box">
-    <div class="modal-head">
-      <span class="modal-title">Add Panchayat Tax / Building Bill</span>
-      <button type="button" class="btn" data-action="close-modal" data-modal="expenseModal">Close</button>
-    </div>
-    <form id="expenseForm" class="form-grid form-grid-2">
       <div class="field">
-        <label>Category</label>
-        <select id="expCategory">
-          <option value="Villiappally Panchayat Property Tax">Villiappally Panchayat Property Tax</option>
-          <option value="Village Office Building Tax">Village Office Building Tax</option>
-          <option value="KSEB Common / Motor Bill">KSEB Common / Motor Bill</option>
-          <option value="Plumbing / Shutter / Maintenance">Plumbing / Shutter / Maintenance</option>
+        <label>Filter by Room (Optional)</label>
+        <select id="exportRoomFilter">
+          <option value="ALL">All Rooms &amp; Building-Wide Records</option>
         </select>
       </div>
-      <div class="field">
-        <label>Room (Optional)</label>
-        <select id="expRoom">
-          <option value="Building Common">Building Common</option>
-          <option value="G1">G1</option><option value="G2">G2</option><option value="G3">G3</option><option value="G4">G4</option>
-          <option value="F1">F1</option><option value="F2">F2</option><option value="F3">F3</option><option value="F4">F4</option><option value="F5">F5</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Amount (₹)</label>
-        <input type="number" id="expAmount" required min="1" />
-      </div>
-      <div class="field">
-        <label>Paid Date</label>
-        <input type="date" id="expDate" required />
-      </div>
-      <div class="field">
-        <label>Paid By</label>
-        <select id="expPaidBy"></select>
-      </div>
-      <div class="field">
-        <label>Receipt / Assessment No.</label>
-        <input type="text" id="expNote" placeholder="e.g., Door No / Receipt #" />
-      </div>
-      <div style="grid-column: 1 / -1; display:flex; gap:8px; justify-content:flex-end; margin-top:6px;">
-        <button type="button" class="btn" data-action="close-modal" data-modal="expenseModal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save Record</button>
-      </div>
-    </form>
-  </div>
-</div>
 
-<!-- COLLECTORS MODAL -->
-<div id="collectorsModal" class="modal-backdrop hidden">
-  <div class="modal-box">
-    <div class="modal-head">
-      <span class="modal-title">Edit Collectors / Handlers</span>
-      <button type="button" class="btn" data-action="close-modal" data-modal="collectorsModal">Close</button>
-    </div>
-    <p style="font-size:12.5px; color:var(--muted); margin-bottom:10px;">Najeeba is set as the primary on-site collector. Add or rename other handlers below.</p>
-    <div id="collectorsList" style="margin-bottom:12px;"></div>
-    <div style="display:flex; gap:8px;">
-      <input type="text" id="newCollectorInput" placeholder="Add new name (e.g., Bank Direct)" style="flex:1; padding:9px; border:1px solid #cbd5e1; border-radius:9px;" />
-      <button type="button" class="btn btn-primary" data-action="add-collector">Add</button>
-    </div>
-  </div>
-</div>
+      <div id="exportPreviewBox" class="panel" style="background:var(--surface-2);padding:11px;font-size:12px;margin-bottom:12px;"></div>
 
-<!-- BACKUP / SYNC MODAL -->
-<div id="backupModal" class="modal-backdrop hidden">
-  <div class="modal-box">
-    <div class="modal-head">
-      <span class="modal-title">Backup, Export & Phone Sync</span>
-      <button type="button" class="btn" data-action="close-modal" data-modal="backupModal">Close</button>
-    </div>
-    <div style="display:grid; gap:10px;">
-      <button type="button" class="btn btn-primary" data-action="export-json">Download Full Backup (.json)</button>
-      <button type="button" class="btn" data-action="export-csv">Export Room & Rent Summary (.csv)</button>
-      <div class="field" style="margin-top:6px;">
-        <label>Restore / Merge Backup File (.json)</label>
-        <input type="file" id="importJsonInput" accept=".json" />
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button type="button" id="btnExportRangePDF" class="btn btn-indigo" style="width:100%;">
+          Share / Download PDF Statement (From → To)
+        </button>
+        <button type="button" id="btnExportRangeCSV" class="btn btn-primary" style="width:100%;">
+          Export Excel / CSV Sheet (From → To)
+        </button>
+        <button type="button" id="btnExportRangeJSON" class="btn btn-outline" style="width:100%;">
+          Export Filtered JSON Data (From → To)
+        </button>
       </div>
     </div>
   </div>
-</div>
 
-<div id="toast" class="toast hidden"></div>
+  <!-- MODAL: DOCUMENT VAULT -->
+  <div class="modal-backdrop" id="docsModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title">Building Documents Vault</div>
+          <div style="font-size:12px;color:var(--muted);">Save Panchayat receipts, lease agreements, KSEB bills &amp; IDs</div>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="docsModal">Close</button>
+      </div>
 
-<script>
-(function() {
-  const STORAGE_KEY = "crescent_building_villiappally_v1";
-  let memoryFallback = null;
+      <form id="docForm" class="panel" style="background:var(--surface-2);">
+        <div style="font-weight:800;font-size:13px;margin-bottom:8px;">+ Save New Document (PDF or Photo)</div>
+        <div class="field">
+          <input type="text" id="docTitle" required placeholder="Document Title (e.g. Panchayat Tax Receipt 2026)" />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <select id="docRoom"></select>
+          </div>
+          <div class="field">
+            <select id="docCategory">
+              <option value="Panchayat Tax">Panchayat Tax</option>
+              <option value="Rental Agreement">Rental Agreement</option>
+              <option value="Utility Bill">Electricity / Water Bill</option>
+              <option value="Tenant ID">Tenant ID / KYC</option>
+              <option value="Receipt / Other">Receipt / Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <input type="file" id="docFile" accept="application/pdf,image/*" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Save Document Offline</button>
+      </form>
 
-  function safeLoad() {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) return JSON.parse(raw);
-    } catch (e) {}
-    return memoryFallback;
-  }
+      <div class="sec-head" style="margin-top:8px;">
+        <span style="font-weight:800;font-size:13px;">Saved Documents</span>
+        <select id="docFilterRoom" style="padding:5px 8px;border:1px solid #cbd5e1;border-radius:8px;font-size:12px;"></select>
+      </div>
+      <div id="docsList"></div>
+    </div>
+  </div>
 
-  function safeSave(data) {
-    memoryFallback = data;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch (e) {}
-  }
+  <!-- MODAL: COLLECTORS -->
+  <div class="modal-backdrop" id="collectorsModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Authorized Rent Collectors</div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="collectorsModal">Close</button>
+      </div>
+      <div id="collectorsList" style="margin-bottom:12px;"></div>
+      <form id="collectorForm" class="grid-2">
+        <input type="text" id="newCollectorName" required placeholder="Add person (e.g. Moosa)" style="padding:9px;border:1px solid #cbd5e1;border-radius:9px;font-size:13px;" />
+        <button type="submit" class="btn btn-primary">Add Collector</button>
+      </form>
+    </div>
+  </div>
 
-  const defaultRooms = [
-    { id: "F1", floor: "First Floor", status: "occupied", shop: "First Floor Unit 1", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "F2", floor: "First Floor", status: "vacant", shop: "First Floor Unit 2", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "F3", floor: "First Floor", status: "vacant", shop: "First Floor Unit 3", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "F4", floor: "First Floor", status: "vacant", shop: "First Floor Unit 4", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "F5", floor: "First Floor", status: "vacant", shop: "First Floor Unit 5", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "G1", floor: "Ground Floor", status: "occupied", shop: "Ground Shop 1", tenant: "", phone: "", rent: 12000, advance: 40000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "G2", floor: "Ground Floor", status: "family", shop: "Moosa General Store", tenant: "Moosa (Father-in-law)", phone: "", rent: 0, advance: 0, kseb: "", idProof: "", start: "", expiry: "", notes: "Owner / Family Use (Rent-Free)" },
-    { id: "G3", floor: "Ground Floor", status: "vacant", shop: "Ground Shop 3", tenant: "", phone: "", rent: 12000, advance: 40000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
-    { id: "G4", floor: "Ground Floor", status: "vacant", shop: "Ground Shop 4", tenant: "", phone: "", rent: 12000, advance: 40000, kseb: "", idProof: "", start: "", expiry: "", notes: "" }
-  ];
+  <!-- MODAL: BACKUP / SYNC -->
+  <div class="modal-backdrop" id="backupModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Backup &amp; Phone-to-Phone Sync</div>
+        <button type="button" class="btn btn-outline btn-sm" data-close="backupModal">Close</button>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">
+        Export your complete building data file and share it on WhatsApp between Najeeb and Najeeba to keep both phones synced.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
+        <button type="button" id="btnExportFullBackup" class="btn btn-primary" style="width:100%;">Share / Export Full Backup (.json)</button>
+      </div>
+      <div class="panel" style="background:var(--surface-2);">
+        <div style="font-weight:700;font-size:13px;margin-bottom:6px;">Restore / Import Backup File (.json)</div>
+        <input type="file" id="importBackupFile" accept=".json,application/json" style="font-size:12px;width:100%;" />
+      </div>
+    </div>
+  </div>
 
-  function getCurrentMonthKey() {
-    const d = new Date();
-    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
-  }
+  <div class="toast" id="toast"></div>
 
-  let state = safeLoad() || {
-    rooms: defaultRooms,
-    payments: {}, // { "2026-11": { "G1": { amount, date, mode, collector, ref } } }
-    expenses: [],
-    collectors: ["Najeeba", "Bank Direct", "Najeeb"],
-    role: "najeeba",
-    unlockedAbroad: false,
-    selectedMonth: getCurrentMonthKey(),
-    activeTab: "floors"
-  };
+  <script>
+  (function () {
+    const STORAGE_KEY = "crescent_building_state_v1";
+    const LEGACY_KEYS = ["crescentBuildingState", "crescent_building_v1", "cb_state"];
 
-  if (!state.selectedMonth) state.selectedMonth = getCurrentMonthKey();
-  if (!state.collectors || !state.collectors.length) state.collectors = ["Najeeba", "Bank Direct", "Najeeb"];
-
-  function persist() {
-    safeSave(state);
-  }
-
-  function showToast(msg) {
-    const el = document.getElementById("toast");
-    el.textContent = msg;
-    el.classList.remove("hidden");
-    clearTimeout(el._timer);
-    el._timer = setTimeout(() => el.classList.add("hidden"), 2600);
-  }
-
-  function canEdit() {
-    if (state.role === "najeeba" || state.unlockedAbroad) return true;
-    showToast("Monitor Mode active — tap 'Enable Edits' at top to modify.");
-    return false;
-  }
-
-  function formatINR(num) {
-    return "₹" + Number(num || 0).toLocaleString("en-IN");
-  }
-
-  function populateMonths() {
-    const sel = document.getElementById("monthSelect");
-    const now = new Date();
-    const options = [];
-    for (let i = -6; i <= 3; i++) {
-      const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
-      const val = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
-      const label = d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
-      options.push(`<option value="${val}" ${val === state.selectedMonth ? "selected" : ""}>${label}</option>`);
+    function todayISO() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
     }
-    sel.innerHTML = options.join("");
-  }
 
-  function getMonthPayments() {
-    return state.payments[state.selectedMonth] || {};
-  }
+    function currentMonthKey() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    }
 
-  function renderKPIs() {
-    const monthPay = getMonthPayments();
-    let expected = 0;
-    let collected = 0;
-    let najeebaCollected = 0;
+    function formatINR(num) {
+      const n = Number(num) || 0;
+      return "₹" + n.toLocaleString("en-IN");
+    }
 
-    state.rooms.forEach(r => {
-      if (r.status === "occupied") {
-        expected += Number(r.rent || 0);
-        const p = monthPay[r.id];
-        if (p && Number(p.amount) > 0) {
-          collected += Number(p.amount);
-          if ((p.collector || "Najeeba") === "Najeeba") {
-            najeebaCollected += Number(p.amount);
+    function formatDisplayDate(iso) {
+      if (!iso) return "";
+      const parts = iso.split("-");
+      if (parts.length !== 3) return iso;
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      return `${parts[2]} ${months[parseInt(parts[1], 10) - 1] || parts[1]} ${parts[0]}`;
+    }
+
+    function monthLabelFromKey(ym) {
+      const [y, m] = ym.split("-");
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      return `${months[parseInt(m, 10) - 1] || m} ${y}`;
+    }
+
+    const DEFAULT_ROOMS = [
+      { id: "G1", code: "G1", floor: "Ground Floor", unitName: "Ground Floor Unit 1", status: "occupied", tenantName: "", tenantPhone: "", rent: 12000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "G2", code: "G2", floor: "Ground Floor", unitName: "Moosa's General Store", status: "family", tenantName: "Moosa (Owner / Family)", tenantPhone: "", rent: 0, deposit: 0, leaseStart: "", leaseEnd: "", notes: "Rent-free owner/family store", custom: false },
+      { id: "G3", code: "G3", floor: "Ground Floor", unitName: "Ground Floor Unit 3", status: "vacant", tenantName: "", tenantPhone: "", rent: 12000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "G4", code: "G4", floor: "Ground Floor", unitName: "Ground Floor Unit 4", status: "vacant", tenantName: "", tenantPhone: "", rent: 12000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "F1", code: "F1", floor: "First Floor", unitName: "First Floor Unit 1", status: "occupied", tenantName: "", tenantPhone: "", rent: 8000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "F2", code: "F2", floor: "First Floor", unitName: "First Floor Unit 2", status: "vacant", tenantName: "", tenantPhone: "", rent: 8000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "F3", code: "F3", floor: "First Floor", unitName: "First Floor Unit 3", status: "vacant", tenantName: "", tenantPhone: "", rent: 8000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "F4", code: "F4", floor: "First Floor", unitName: "First Floor Unit 4", status: "vacant", tenantName: "", tenantPhone: "", rent: 8000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false },
+      { id: "F5", code: "F5", floor: "First Floor", unitName: "First Floor Unit 5", status: "vacant", tenantName: "", tenantPhone: "", rent: 8000, deposit: 0, leaseStart: "", leaseEnd: "", notes: "", custom: false }
+    ];
+
+    function defaultState() {
+      return {
+        role: "Najeeba",
+        selectedMonth: currentMonthKey(),
+        activeTab: "floor",
+        rooms: JSON.parse(JSON.stringify(DEFAULT_ROOMS)),
+        payments: [],
+        bills: [],
+        collectors: ["Najeeba", "Najeeb", "Moosa"]
+      };
+    }
+
+    function loadState() {
+      try {
+        let raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          for (const k of LEGACY_KEYS) {
+            if (localStorage.getItem(k)) {
+              raw = localStorage.getItem(k);
+              break;
+            }
           }
         }
-      }
-    });
-
-    const pending = Math.max(0, expected - collected);
-    const monthExpensesByNajeeba = state.expenses
-      .filter(e => e.date && e.date.startsWith(state.selectedMonth) && (e.paidBy || "Najeeba") === "Najeeba")
-      .reduce((sum, e) => sum + Number(e.amount || 0), 0);
-    const netWithNajeeba = najeebaCollected - monthExpensesByNajeeba;
-
-    document.getElementById("kpiGrid").innerHTML = `
-      <div class="kpi-card">
-        <div class="kpi-label">Expected Rent</div>
-        <div class="kpi-val">${formatINR(expected)}</div>
-        <div class="kpi-sub">${state.rooms.filter(r => r.status === "occupied").length} rented • 1 family</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Collected</div>
-        <div class="kpi-val text-emerald">${formatINR(collected)}</div>
-        <div class="kpi-sub">Selected billing month</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Pending Dues</div>
-        <div class="kpi-val text-amber">${formatINR(pending)}</div>
-        <div class="kpi-sub">Excludes rent-free G2</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Net w/ Najeeba</div>
-        <div class="kpi-val text-indigo">${formatINR(netWithNajeeba)}</div>
-        <div class="kpi-sub">Collected − Bills paid</div>
-      </div>
-    `;
-  }
-
-  function renderRoomCard(r) {
-    const monthPay = getMonthPayments();
-    const payment = monthPay[r.id];
-    const isPaid = payment && Number(payment.amount) >= Number(r.rent || 0) && Number(r.rent || 0) > 0;
-
-    let cardClass = "status-vacant";
-    let badgeHtml = `<span class="badge badge-vacant">Vacant</span>`;
-
-    if (r.status === "family") {
-      cardClass = "status-family";
-      badgeHtml = `<span class="badge badge-family">Family / Rent-Free</span>`;
-    } else if (r.status === "occupied") {
-      if (isPaid) {
-        cardClass = "status-occupied";
-        badgeHtml = `<span class="badge badge-paid">Paid (${payment.collector || "Najeeba"})</span>`;
-      } else {
-        cardClass = "status-due";
-        badgeHtml = `<span class="badge badge-due">Rent Due</span>`;
+        if (!raw) return defaultState();
+        const parsed = JSON.parse(raw);
+        const base = defaultState();
+        return {
+          ...base,
+          ...parsed,
+          rooms: Array.isArray(parsed.rooms) && parsed.rooms.length ? parsed.rooms : base.rooms,
+          payments: Array.isArray(parsed.payments) ? parsed.payments : [],
+          bills: Array.isArray(parsed.bills) ? parsed.bills : [],
+          collectors: Array.isArray(parsed.collectors) && parsed.collectors.length ? parsed.collectors : base.collectors
+        };
+      } catch (e) {
+        return defaultState();
       }
     }
 
-    let actionButtons = "";
-    if (r.status === "family") {
-      actionButtons = `
-        <button type="button" class="btn btn-indigo" data-action="convert-card-to-rent" data-id="${r.id}">Open for Rent</button>
-        <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Details</button>
-      `;
-    } else if (r.status === "occupied") {
-      actionButtons = `
-        <button type="button" class="btn btn-emerald" data-action="open-rent" data-id="${r.id}">${isPaid ? "Edit Receipt" : "Log Rent"}</button>
-        <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Details</button>
-        ${r.phone ? `<button type="button" class="btn btn-amber" data-action="remind-tenant" data-id="${r.id}">WhatsApp</button>` : ""}
-      `;
-    } else {
-      actionButtons = `
-        <button type="button" class="btn btn-primary" data-action="open-room" data-id="${r.id}">+ Assign Tenant</button>
+    let state = loadState();
+
+    function persist() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.add("show");
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    /* ---------------- INDEXEDDB DOCUMENT VAULT ---------------- */
+    const DB_NAME = "CrescentDocsDB";
+    const STORE_NAME = "documents";
+
+    function openDocsDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, 1);
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME, { keyPath: "id" });
+          }
+        };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function getAllDocs() {
+      const db = await openDocsDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, "readonly");
+        const req = tx.objectStore(STORE_NAME).getAll();
+        req.onsuccess = () => resolve((req.result || []).sort((a, b) => b.createdAt - a.createdAt));
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function saveDocRecord(doc) {
+      const db = await openDocsDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        tx.objectStore(STORE_NAME).put(doc);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    async function deleteDocRecord(id) {
+      const db = await openDocsDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, "readwrite");
+        tx.objectStore(STORE_NAME).delete(id);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    /* ---------------- PURE OFFLINE A4 PDF GENERATOR ---------------- */
+    function wrapTextLines(lines, maxChars) {
+      const out = [];
+      lines.forEach((item) => {
+        const isObj = typeof item === "object" && item !== null;
+        const text = isObj ? String(item.text || "") : String(item || "");
+        const bold = isObj ? !!item.bold : false;
+        const size = isObj && item.size ? item.size : 10;
+
+        if (text.length <= maxChars) {
+          out.push({ text, bold, size });
+          return;
+        }
+        let remaining = text;
+        while (remaining.length > maxChars) {
+          let cut = remaining.lastIndexOf(" ", maxChars);
+          if (cut < 20) cut = maxChars;
+          out.push({ text: remaining.slice(0, cut), bold, size });
+          remaining = remaining.slice(cut).trim();
+        }
+        if (remaining) out.push({ text: remaining, bold, size });
+      });
+      return out;
+    }
+
+    function buildPDFBlob(rawLines) {
+      const clean = (s) => String(s)
+        .replace(/₹/g, "Rs. ")
+        .replace(/[—–]/g, "-")
+        .replace(/•/g, "|")
+        .replace(/→/g, "to")
+        .replace(/[^\x20-\x7E]/g, " ")
+        .replace(/\\/g, "\\\\")
+        .replace(/\(/g, "\\(")
+        .replace(/\)/g, "\\)");
+
+      const lines = wrapTextLines(rawLines, 86);
+      const perPage = 44;
+      const pages = [];
+      for (let i = 0; i < lines.length; i += perPage) {
+        pages.push(lines.slice(i, i + perPage));
+      }
+      if (!pages.length) pages.push([{ text: "Crescent Building Report", bold: true, size: 14 }]);
+
+      const objects = [];
+      const addObj = (body) => {
+        objects.push(body);
+        return objects.length;
+      };
+
+      addObj("<< /Type /Catalog /Pages 2 0 R >>");
+      addObj("");
+      addObj("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>");
+      addObj("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>");
+
+      const pageIds = [];
+      pages.forEach((pageLines, idx) => {
+        let stream = "BT\n";
+        let y = 795;
+        pageLines.forEach((item) => {
+          stream += `${item.bold ? "/F2" : "/F1"} ${item.size} Tf\n1 0 0 1 42 ${y} Tm\n(${clean(item.text)}) Tj\n`;
+          y -= item.size + 6;
+        });
+        stream += `/F1 8 Tf\n1 0 0 1 42 28 Tm\n(Page ${idx + 1} of ${pages.length} - Crescent Building, Villiappally) Tj\nET`;
+
+        const contentId = addObj(`<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`);
+        const pageId = addObj(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${contentId} 0 R >>`);
+        pageIds.push(pageId);
+      });
+
+      objects[1] = `<< /Type /Pages /Kids [${pageIds.map((id) => id + " 0 R").join(" ")}] /Count ${pageIds.length} >>`;
+
+      let pdf = "%PDF-1.4\n";
+      const offsets = [0];
+      objects.forEach((obj, i) => {
+        offsets.push(pdf.length);
+        pdf += `${i + 1} 0 obj\n${obj}\nendobj\n`;
+      });
+
+      const xrefPos = pdf.length;
+      pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
+      for (let i = 1; i < offsets.length; i++) {
+        pdf += String(offsets[i]).padStart(10, "0") + " 00000 n \n";
+      }
+      pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefPos}\n%%EOF`;
+
+      return new Blob([pdf], { type: "application/pdf" });
+    }
+
+    async function shareOrDownloadFile(blob, fileName, title) {
+      const file = new File([blob], fileName, { type: blob.type || "application/octet-stream" });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({ title, files: [file] });
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      showToast(`Downloaded ${fileName}`);
+    }
+
+    /* ---------------- CALCULATIONS ---------------- */
+    function roomPaidForMonth(roomId, ym) {
+      return state.payments
+        .filter((p) => p.roomId === roomId && p.month === ym)
+        .reduce((sum, p) => sum + Number(p.amount || 0), 0);
+    }
+
+    function getMonthMetrics(ym) {
+      let expected = 0;
+      let rentedCount = 0;
+      let familyCount = 0;
+
+      state.rooms.forEach((r) => {
+        if (r.status === "occupied") {
+          expected += Number(r.rent || 0);
+          rentedCount++;
+        } else if (r.status === "family") {
+          familyCount++;
+        }
+      });
+
+      const collected = state.payments
+        .filter((p) => p.month === ym)
+        .reduce((sum, p) => sum + Number(p.amount || 0), 0);
+
+      const pending = Math.max(0, expected - collected);
+
+      const billsPaid = state.bills
+        .filter((b) => (b.date || "").startsWith(ym))
+        .reduce((sum, b) => sum + Number(b.amount || 0), 0);
+
+      const netWithNajeeba = collected - billsPaid;
+
+      return { expected, rentedCount, familyCount, collected, pending, billsPaid, netWithNajeeba };
+    }
+
+    /* ---------------- RENDERING ---------------- */
+    function populateMonths() {
+      const sel = document.getElementById("monthSelect");
+      const set = new Set();
+      const now = new Date();
+      for (let i = -12; i <= 3; i++) {
+        const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+        set.add(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`);
+      }
+      state.payments.forEach((p) => p.month && set.add(p.month));
+      set.add(state.selectedMonth);
+
+      const sorted = Array.from(set).sort().reverse();
+      sel.innerHTML = sorted.map((ym) => `<option value="${ym}">${monthLabelFromKey(ym)}</option>`).join("");
+      sel.value = state.selectedMonth;
+    }
+
+    function populateRoomDropdowns() {
+      const options = [`<option value="Building-Wide">Building-Wide</option>`]
+        .concat(state.rooms.map((r) => `<option value="${r.code}">${r.code} — ${r.unitName}</option>`))
+        .join("");
+
+      const docRoom = document.getElementById("docRoom");
+      if (docRoom) docRoom.innerHTML = options;
+
+      const docFilter = document.getElementById("docFilterRoom");
+      if (docFilter) {
+        const prev = docFilter.value || "ALL";
+        docFilter.innerHTML = `<option value="ALL">All Rooms</option>` + options;
+        docFilter.value = prev;
+      }
+
+      const expFilter = document.getElementById("exportRoomFilter");
+      if (expFilter) {
+        const prev = expFilter.value || "ALL";
+        expFilter.innerHTML = `<option value="ALL">All Rooms &amp; Building-Wide</option>` + options;
+        expFilter.value = prev;
+      }
+    }
+
+    function populateCollectorDropdowns() {
+      const opts = state.collectors.map((c) => `<option value="${c}">${c}</option>`).join("");
+      document.getElementById("rentCollector").innerHTML = opts;
+      document.getElementById("billPaidBy").innerHTML = opts;
+    }
+
+    function renderHeaderAndKPIs() {
+      const gf = state.rooms.filter((r) => r.floor === "Ground Floor").length;
+      const ff = state.rooms.filter((r) => r.floor === "First Floor").length;
+      const extra = state.rooms.length - gf - ff;
+      document.getElementById("buildingSub").textContent =
+        `Villiappally • ${state.rooms.length} Units (${gf} GF + ${ff} FF${extra > 0 ? ` + ${extra} Extra` : ""})`;
+
+      document.querySelectorAll("#roleSwitch .role-btn").forEach((b) => {
+        b.classList.toggle("active", b.getAttribute("data-role") === state.role);
+      });
+
+      const m = getMonthMetrics(state.selectedMonth);
+      document.getElementById("kpiGrid").innerHTML = `
+        <div class="kpi-card">
+          <div class="kpi-label">Expected Rent</div>
+          <div class="kpi-val">${formatINR(m.expected)}</div>
+          <div class="kpi-sub">${m.rentedCount} rented • ${m.familyCount} family</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Collected</div>
+          <div class="kpi-val emerald">${formatINR(m.collected)}</div>
+          <div class="kpi-sub">${monthLabelFromKey(state.selectedMonth)}</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Pending Dues</div>
+          <div class="kpi-val amber">${formatINR(m.pending)}</div>
+          <div class="kpi-sub">Excludes rent-free units</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Net w/ Najeeba</div>
+          <div class="kpi-val indigo">${formatINR(m.netWithNajeeba)}</div>
+          <div class="kpi-sub">Collected − Bills (${formatINR(m.billsPaid)})</div>
+        </div>
       `;
     }
 
-    return `
-      <div class="room-card ${cardClass}">
-        <div class="room-top">
-          <div>
-            <span class="room-id">${r.id}</span>
-            <div class="room-shop">${r.shop || r.id}</div>
-            <div class="room-tenant">${r.tenant ? r.tenant : (r.status === "vacant" ? "Available for lease" : "No name added")}</div>
-          </div>
-          ${badgeHtml}
-        </div>
-        <div class="room-meta">
-          <span><strong>Rent:</strong> ${r.status === "family" ? "₹0 (Rent-Free)" : formatINR(r.rent) + "/mo"}</span>
-          ${r.kseb ? `<span><strong>KSEB:</strong> ${r.kseb}</span>` : ""}
-          ${r.expiry ? `<span><strong>Exp:</strong> ${r.expiry}</span>` : ""}
-        </div>
-        <div class="room-actions">
-          ${actionButtons}
-        </div>
-      </div>
-    `;
-  }
+    function renderRoomCard(r) {
+      const paid = roomPaidForMonth(r.id, state.selectedMonth);
+      const rent = Number(r.rent || 0);
+      const due = Math.max(0, rent - paid);
 
-  function renderFloors() {
-    const ff = state.rooms.filter(r => r.id.startsWith("F"));
-    const gf = state.rooms.filter(r => r.id.startsWith("G"));
-    document.getElementById("firstFloorGrid").innerHTML = ff.map(renderRoomCard).join("");
-    document.getElementById("groundFloorGrid").innerHTML = gf.map(renderRoomCard).join("");
-  }
+      let cardClass = "";
+      let pillClass = "pill-vacant";
+      let pillText = "Vacant";
 
-  function renderRentLedger() {
-    const monthPay = getMonthPayments();
-    const rows = state.rooms.map(r => {
       if (r.status === "family") {
-        return `
-          <div class="list-row">
-            <div>
-              <strong>${r.id} • ${r.shop}</strong>
-              <div style="font-size:12px; color:var(--indigo);">Owner / Family Use — Excluded from Rent</div>
-            </div>
-            <button type="button" class="btn btn-indigo" data-action="convert-card-to-rent" data-id="${r.id}">Open for Rent</button>
-          </div>
-        `;
-      }
-      if (r.status === "vacant") {
-        return `
-          <div class="list-row">
-            <div>
-              <strong>${r.id} • ${r.shop}</strong>
-              <div style="font-size:12px; color:var(--muted);">Vacant (${formatINR(r.rent)}/mo asking)</div>
-            </div>
-            <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Assign</button>
-          </div>
-        `;
-      }
-      const p = monthPay[r.id];
-      const paid = p && Number(p.amount) > 0;
-      return `
-        <div class="list-row">
-          <div>
-            <strong>${r.id} • ${r.shop}</strong>
-            <div style="font-size:12px; color:var(--muted);">
-              ${paid ? `Paid ${formatINR(p.amount)} via ${p.mode} (${p.collector}) on ${p.date}` : `Due: ${formatINR(r.rent)}`}
-            </div>
-          </div>
-          <button type="button" class="btn ${paid ? "" : "btn-emerald"}" data-action="open-rent" data-id="${r.id}">
-            ${paid ? "Receipt" : "Collect"}
-          </button>
-        </div>
-      `;
-    }).join("");
-    document.getElementById("rentLedgerList").innerHTML = rows;
-  }
-
-  function renderExpenses() {
-    if (!state.expenses.length) {
-      document.getElementById("expenseList").innerHTML = `<p style="font-size:13px; color:var(--muted);">No Panchayat taxes, KSEB bills, or maintenance expenses logged yet. Tap <strong>+ Add Bill / Tax</strong> above.</p>`;
-      return;
-    }
-    document.getElementById("expenseList").innerHTML = state.expenses.slice().reverse().map((e, idx) => {
-      const realIdx = state.expenses.length - 1 - idx;
-      return `
-        <div class="list-row">
-          <div>
-            <strong>${e.category}</strong> <span class="sec-badge">${e.room}</span>
-            <div style="font-size:12px; color:var(--muted);">${e.date} • Paid by ${e.paidBy} ${e.note ? "• " + e.note : ""}</div>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <strong>${formatINR(e.amount)}</strong>
-            <button type="button" class="btn btn-danger" data-action="delete-expense" data-idx="${realIdx}">Del</button>
-          </div>
-        </div>
-      `;
-    }).join("");
-  }
-
-  function renderAlerts() {
-    const monthPay = getMonthPayments();
-    const items = [];
-    state.rooms.forEach(r => {
-      if (r.status === "occupied") {
-        const p = monthPay[r.id];
-        if (!p || Number(p.amount) < Number(r.rent || 0)) {
-          items.push(`
-            <div class="list-row">
-              <div>
-                <strong>${r.id} • ${r.shop}</strong>
-                <div style="font-size:12px; color:var(--amber);">Pending Rent: ${formatINR(r.rent)} for ${state.selectedMonth}</div>
-              </div>
-              <button type="button" class="btn btn-amber" data-action="remind-tenant" data-id="${r.id}">WhatsApp</button>
-            </div>
-          `);
-        }
-      }
-      if (r.expiry) {
-        const days = Math.ceil((new Date(r.expiry) - new Date()) / 86400000);
-        if (days <= 60) {
-          items.push(`
-            <div class="list-row">
-              <div>
-                <strong>${r.id} • Agreement ${days < 0 ? "Expired" : "Expiring Soon"}</strong>
-                <div style="font-size:12px; color:var(--red);">Expiry date: ${r.expiry} (${days} days)</div>
-              </div>
-              <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Renew</button>
-            </div>
-          `);
-        }
-      }
-    });
-    document.getElementById("alertsList").innerHTML = items.length
-      ? items.join("")
-      : `<p style="font-size:13px; color:var(--emerald); font-weight:600;">All rented rooms are up to date and no agreements are expiring within 60 days.</p>`;
-  }
-
-  function renderCollectorsModal() {
-    document.getElementById("collectorsList").innerHTML = state.collectors.map((name, i) => `
-      <div class="list-row">
-        <strong>${name} ${i === 0 ? '<span class="sec-badge">Default</span>' : ""}</strong>
-        ${i === 0 ? "" : `<button type="button" class="btn btn-danger" data-action="remove-collector" data-idx="${i}">Remove</button>`}
-      </div>
-    `).join("");
-  }
-
-  function renderAll() {
-    document.querySelectorAll(".role-btn").forEach(btn => {
-      const isRole = btn.dataset.role === state.role;
-      btn.classList.toggle("active", isRole);
-      btn.classList.toggle("abroad", isRole && state.role === "najeeb");
-    });
-
-    const banner = document.getElementById("monitorBanner");
-    if (state.role === "najeeb" && !state.unlockedAbroad) {
-      banner.classList.remove("hidden");
-    } else {
-      banner.classList.add("hidden");
-    }
-
-    ["floors", "rent", "taxes", "alerts"].forEach(t => {
-      document.getElementById("tab-" + t).classList.toggle("hidden", state.activeTab !== t);
-    });
-    document.querySelectorAll(".nav-btn").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.tab === state.activeTab);
-    });
-
-    renderKPIs();
-    renderFloors();
-    renderRentLedger();
-    renderExpenses();
-    renderAlerts();
-  }
-
-  function openRoomModal(roomId, autoConvertToRent) {
-    if (!canEdit()) return;
-    const r = state.rooms.find(x => x.id === roomId);
-    if (!r) return;
-
-    document.getElementById("editRoomId").value = r.id;
-    document.getElementById("roomModalTitle").textContent = `${r.id} (${r.floor}) — Details`;
-    document.getElementById("editStatus").value = autoConvertToRent ? "vacant" : r.status;
-    document.getElementById("editShop").value = autoConvertToRent ? "" : (r.shop || "");
-    document.getElementById("editTenant").value = autoConvertToRent ? "" : (r.tenant || "");
-    document.getElementById("editPhone").value = autoConvertToRent ? "" : (r.phone || "");
-    document.getElementById("editRent").value = autoConvertToRent ? 12000 : (r.rent || 0);
-    document.getElementById("editAdvance").value = autoConvertToRent ? 40000 : (r.advance || 0);
-    document.getElementById("editKseb").value = r.kseb || "";
-    document.getElementById("editIdProof").value = autoConvertToRent ? "" : (r.idProof || "");
-    document.getElementById("editStart").value = autoConvertToRent ? "" : (r.start || "");
-    document.getElementById("editExpiry").value = autoConvertToRent ? "" : (r.expiry || "");
-
-    let notes = r.notes || "";
-    if (autoConvertToRent) {
-      const tag = "Opened for commercial rent (Previously Moosa General Store - Family Use)";
-      notes = notes ? notes + "\n" + tag : tag;
-    }
-    document.getElementById("editNotes").value = notes;
-
-    document.getElementById("familyConvertBox").classList.toggle("hidden", r.status !== "family" || autoConvertToRent);
-    document.getElementById("roomModal").classList.remove("hidden");
-    if (autoConvertToRent) {
-      showToast("G2 switched to Vacant — set rent & save.");
-      setTimeout(() => document.getElementById("editRent").focus(), 100);
-    }
-  }
-
-  function openRentModal(roomId) {
-    if (!canEdit()) return;
-    const r = state.rooms.find(x => x.id === roomId);
-    if (!r) return;
-    const existing = getMonthPayments()[roomId];
-
-    document.getElementById("rentRoomId").value = r.id;
-    document.getElementById("rentModalTitle").textContent = `${r.id} • ${r.shop} (${state.selectedMonth})`;
-    document.getElementById("rentAmount").value = existing ? existing.amount : (r.rent || 0);
-    document.getElementById("rentDate").value = existing ? existing.date : new Date().toISOString().slice(0, 10);
-    document.getElementById("rentMode").value = existing ? existing.mode : "UPI / GPay";
-    document.getElementById("rentRef").value = existing ? (existing.ref || "") : "";
-
-    const sel = document.getElementById("rentCollector");
-    sel.innerHTML = state.collectors.map(c => `<option value="${c}" ${(existing ? existing.collector : "Najeeba") === c ? "selected" : ""}>${c}</option>`).join("");
-
-    document.getElementById("rentModal").classList.remove("hidden");
-  }
-
-  // Delegated Click Handler (Works reliably in Acode & Mobile Browsers)
-  document.addEventListener("click", function(e) {
-    const btn = e.target.closest("[data-action]");
-    if (!btn) return;
-    const action = btn.dataset.action;
-
-    if (action === "set-role") {
-      state.role = btn.dataset.role;
-      state.unlockedAbroad = false;
-      persist();
-      renderAll();
-    } else if (action === "unlock-edits") {
-      state.unlockedAbroad = true;
-      renderAll();
-      showToast("Edits unlocked for Najeeb");
-    } else if (action === "switch-tab") {
-      state.activeTab = btn.dataset.tab;
-      persist();
-      renderAll();
-    } else if (action === "open-room") {
-      openRoomModal(btn.dataset.id, false);
-    } else if (action === "convert-card-to-rent") {
-      openRoomModal(btn.dataset.id, true);
-    } else if (action === "convert-family-to-rent") {
-      const id = document.getElementById("editRoomId").value;
-      openRoomModal(id, true);
-    } else if (action === "open-rent") {
-      openRentModal(btn.dataset.id);
-    } else if (action === "close-modal") {
-      document.getElementById(btn.dataset.modal).classList.add("hidden");
-    } else if (action === "clear-rent-payment") {
-      if (!canEdit()) return;
-      const id = document.getElementById("rentRoomId").value;
-      if (state.payments[state.selectedMonth]) {
-        delete state.payments[state.selectedMonth][id];
-      }
-      persist();
-      document.getElementById("rentModal").classList.add("hidden");
-      renderAll();
-      showToast("Marked as unpaid");
-    } else if (action === "mark-all-paid") {
-      if (!canEdit()) return;
-      if (!state.payments[state.selectedMonth]) state.payments[state.selectedMonth] = {};
-      const today = new Date().toISOString().slice(0, 10);
-      state.rooms.forEach(r => {
-        if (r.status === "occupied" && !state.payments[state.selectedMonth][r.id]) {
-          state.payments[state.selectedMonth][r.id] = {
-            amount: r.rent,
-            date: today,
-            mode: "UPI / GPay",
-            collector: "Najeeba",
-            ref: "Bulk marked"
-          };
-        }
-      });
-      persist();
-      renderAll();
-      showToast("All rented rooms marked paid");
-    } else if (action === "open-expense-modal") {
-      if (!canEdit()) return;
-      document.getElementById("expDate").value = new Date().toISOString().slice(0, 10);
-      document.getElementById("expPaidBy").innerHTML = state.collectors.map(c => `<option value="${c}">${c}</option>`).join("");
-      document.getElementById("expenseModal").classList.remove("hidden");
-    } else if (action === "delete-expense") {
-      if (!canEdit()) return;
-      state.expenses.splice(Number(btn.dataset.idx), 1);
-      persist();
-      renderAll();
-      showToast("Bill deleted");
-    } else if (action === "open-collectors") {
-      if (!canEdit()) return;
-      renderCollectorsModal();
-      document.getElementById("collectorsModal").classList.remove("hidden");
-    } else if (action === "add-collector") {
-      const inp = document.getElementById("newCollectorInput");
-      const val = inp.value.trim();
-      if (val && !state.collectors.includes(val)) {
-        state.collectors.push(val);
-        inp.value = "";
-        persist();
-        renderCollectorsModal();
-        showToast("Collector added");
-      }
-    } else if (action === "remove-collector") {
-      state.collectors.splice(Number(btn.dataset.idx), 1);
-      persist();
-      renderCollectorsModal();
-    } else if (action === "open-backup") {
-      document.getElementById("backupModal").classList.remove("hidden");
-    } else if (action === "export-json") {
-      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `Crescent-Building-Villiappally-${state.selectedMonth}.json`;
-      a.click();
-    } else if (action === "export-csv") {
-      const monthPay = getMonthPayments();
-      const lines = ["Room,Floor,Status,Shop,Tenant,Phone,Rent,PaidAmount,Collector,KSEB"];
-      state.rooms.forEach(r => {
-        const p = monthPay[r.id];
-        lines.push([r.id, r.floor, r.status, `"${r.shop}"`, `"${r.tenant}"`, r.phone, r.rent, p ? p.amount : 0, p ? p.collector : "", r.kseb].join(","));
-      });
-      const blob = new Blob([lines.join("\n")], { type: "text/csv" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `Crescent-Building-${state.selectedMonth}.csv`;
-      a.click();
-    } else if (action === "remind-tenant") {
-      const r = state.rooms.find(x => x.id === btn.dataset.id);
-      if (!r) return;
-      const phone = (r.phone || "").replace(/\D/g, "");
-      const msg = encodeURIComponent(`Assalamu Alaikum ${r.tenant || ""}, friendly reminder for Crescent Building (${r.id} - ${r.shop}) rent of ${formatINR(r.rent)} for ${state.selectedMonth}. Thank you.`);
-      window.open(`https://wa.me/${phone.length === 10 ? "91" + phone : phone}?text=${msg}`, "_blank");
-    } else if (action === "send-report") {
-      const monthPay = getMonthPayments();
-      let lines = [`*Crescent Building, Villiappally (${state.selectedMonth})*`];
-      state.rooms.forEach(r => {
-        if (r.status === "family") {
-          lines.push(`• ${r.id}: ${r.shop} (Family / Rent-Free)`);
-        } else if (r.status === "vacant") {
-          lines.push(`• ${r.id}: Vacant`);
+        cardClass = "st-family";
+        pillClass = "pill-family";
+        pillText = "Family / Rent-Free";
+      } else if (r.status === "occupied") {
+        if (paid >= rent && rent > 0) {
+          cardClass = "st-paid";
+          pillClass = "pill-paid";
+          pillText = "Paid";
+        } else if (paid > 0) {
+          cardClass = "st-partial";
+          pillClass = "pill-partial";
+          pillText = `Partial (Due ${formatINR(due)})`;
         } else {
-          const p = monthPay[r.id];
-          lines.push(`• ${r.id} (${r.shop}): ${p ? "Paid " + formatINR(p.amount) + " (" + p.collector + ")" : "DUE " + formatINR(r.rent)}`);
+          cardClass = "st-due";
+          pillClass = "pill-due";
+          pillText = "Rent Due";
         }
-      });
-      window.open(`https://wa.me/?text=${encodeURIComponent(lines.join("\n"))}`, "_blank");
+      }
+
+      const tenantLine = r.status === "family"
+        ? (r.tenantName || "Owner / Family Use")
+        : r.status === "occupied"
+          ? (r.tenantName ? `${r.tenantName}${r.tenantPhone ? " • " + r.tenantPhone : ""}` : "No tenant name added")
+          : "Available for commercial lease";
+
+      const rentLine = r.status === "family"
+        ? "Rent: ₹0/mo (Excluded from dues)"
+        : `Rent: ${formatINR(rent)}/mo${r.status === "occupied" && paid > 0 ? ` • Paid: ${formatINR(paid)}` : ""}`;
+
+      let primaryBtn = "";
+      if (r.status === "occupied") {
+        primaryBtn = `<button type="button" class="btn btn-primary" data-action="open-log-rent" data-room="${r.id}">Log Rent</button>`;
+      } else if (r.status === "vacant") {
+        primaryBtn = `<button type="button" class="btn btn-navy" data-action="open-room-details" data-room="${r.id}">+ Assign Tenant</button>`;
+      } else if (r.status === "family") {
+        primaryBtn = `<button type="button" class="btn btn-indigo" data-action="open-for-rent" data-room="${r.id}">Open for Rent</button>`;
+      }
+
+      return `
+        <div class="room-card ${cardClass}">
+          <div class="room-top">
+            <span class="room-badge">${r.code}</span>
+            <span class="status-pill ${pillClass}">${pillText}</span>
+          </div>
+          <div class="room-name">${r.unitName}</div>
+          <div class="room-tenant">${tenantLine}</div>
+          <div class="room-rent">${rentLine}</div>
+          ${r.notes ? `<div class="room-meta">${r.notes}</div>` : ""}
+          <div class="btn-row">
+            ${primaryBtn}
+            <button type="button" class="btn btn-outline" data-action="open-room-details" data-room="${r.id}">Details</button>
+          </div>
+        </div>
+      `;
     }
-  });
 
-  // Form Submissions
-  document.getElementById("roomForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    if (!canEdit()) return;
-    const id = document.getElementById("editRoomId").value;
-    const r = state.rooms.find(x => x.id === id);
-    if (!r) return;
+    function renderFloorTab() {
+      const floorOrder = ["First Floor", "Ground Floor", "Second Floor", "Extra / Terrace / Exterior"];
+      const groups = {};
+      state.rooms.forEach((r) => {
+        const f = r.floor || "Ground Floor";
+        if (!groups[f]) groups[f] = [];
+        groups[f].push(r);
+      });
 
-    r.status = document.getElementById("editStatus").value;
-    r.shop = document.getElementById("editShop").value.trim() || r.id;
-    r.tenant = document.getElementById("editTenant").value.trim();
-    r.phone = document.getElementById("editPhone").value.trim();
-    r.rent = r.status === "family" ? 0 : Number(document.getElementById("editRent").value || 0);
-    r.advance = Number(document.getElementById("editAdvance").value || 0);
-    r.kseb = document.getElementById("editKseb").value.trim();
-    r.idProof = document.getElementById("editIdProof").value.trim();
-    r.start = document.getElementById("editStart").value;
-    r.expiry = document.getElementById("editExpiry").value;
-    r.notes = document.getElementById("editNotes").value.trim();
+      const orderedFloors = [
+        ...floorOrder.filter((f) => groups[f]),
+        ...Object.keys(groups).filter((f) => !floorOrder.includes(f))
+      ];
 
-    persist();
-    document.getElementById("roomModal").classList.add("hidden");
-    renderAll();
-    showToast(`${r.id} saved`);
-  });
+      document.getElementById("tab-floor").innerHTML = orderedFloors.map((floor) => {
+        const list = groups[floor];
+        const rangeLabel = list.length > 1 ? `${list[0].code} – ${list[list.length - 1].code}` : list[0].code;
+        return `
+          <div class="sec-head">
+            <div class="sec-title">${floor} (${list.length} ${list.length === 1 ? "Unit" : "Rooms"})</div>
+            <span class="sec-pill">${rangeLabel}</span>
+          </div>
+          ${list.map(renderRoomCard).join("")}
+        `;
+      }).join("");
+    }
 
-  document.getElementById("rentForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    if (!canEdit()) return;
-    const id = document.getElementById("rentRoomId").value;
-    if (!state.payments[state.selectedMonth]) state.payments[state.selectedMonth] = {};
-    state.payments[state.selectedMonth][id] = {
-      amount: Number(document.getElementById("rentAmount").value || 0),
-      date: document.getElementById("rentDate").value,
-      mode: document.getElementById("rentMode").value,
-      collector: document.getElementById("rentCollector").value,
-      ref: document.getElementById("rentRef").value.trim()
-    };
-    persist();
-    document.getElementById("rentModal").classList.add("hidden");
-    renderAll();
-    showToast(`Rent recorded for ${id}`);
-  });
+    function renderRentTab() {
+      const monthPayments = state.payments
+        .filter((p) => p.month === state.selectedMonth)
+        .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
-  document.getElementById("expenseForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    if (!canEdit()) return;
-    state.expenses.push({
-      category: document.getElementById("expCategory").value,
-      room: document.getElementById("expRoom").value,
-      amount: Number(document.getElementById("expAmount").value || 0),
-      date: document.getElementById("expDate").value,
-      paidBy: document.getElementById("expPaidBy").value,
-      note: document.getElementById("expNote").value.trim()
+      document.getElementById("tab-rent").innerHTML = `
+        <div class="sec-head">
+          <div class="sec-title">Rent Ledger (${monthLabelFromKey(state.selectedMonth)})</div>
+          <button type="button" class="btn btn-blue btn-sm" data-action="open-export">From–To Export</button>
+        </div>
+        <div class="panel">
+          ${monthPayments.length ? monthPayments.map((p) => {
+            const room = state.rooms.find((r) => r.id === p.roomId);
+            return `
+              <div class="list-item">
+                <div>
+                  <div style="font-weight:800;font-size:14px;">${room ? room.code + " — " + room.unitName : p.roomId}</div>
+                  <div style="font-size:12px;color:var(--muted);">
+                    ${formatDisplayDate(p.date)} • ${p.mode} • By ${p.collector}
+                    ${p.note ? `<br/>Note: ${p.note}` : ""}
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-weight:800;color:var(--emerald);font-size:14px;">${formatINR(p.amount)}</div>
+                  <button type="button" class="btn btn-danger btn-sm" style="margin-top:4px;" data-action="del-payment" data-id="${p.id}">Delete</button>
+                </div>
+              </div>
+            `;
+          }).join("") : `<div class="empty-box">No rent payments recorded for ${monthLabelFromKey(state.selectedMonth)}.</div>`}
+        </div>
+      `;
+    }
+
+    function renderBillsTab() {
+      const sortedBills = [...state.bills].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+      document.getElementById("tab-bills").innerHTML = `
+        <div class="sec-head">
+          <div class="sec-title">Panchayat Taxes &amp; Bills</div>
+          <button type="button" class="btn btn-primary btn-sm" data-action="open-add-bill">+ Add Bill / Tax</button>
+        </div>
+        <div class="panel">
+          ${sortedBills.length ? sortedBills.map((b) => `
+            <div class="list-item">
+              <div>
+                <div style="font-weight:800;font-size:14px;">${b.category}</div>
+                <div style="font-size:12px;color:var(--text);">${b.desc}</div>
+                <div style="font-size:11px;color:var(--muted);">${formatDisplayDate(b.date)} • Paid by ${b.paidBy}</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-weight:800;color:var(--red);font-size:14px;">-${formatINR(b.amount)}</div>
+                <button type="button" class="btn btn-danger btn-sm" style="margin-top:4px;" data-action="del-bill" data-id="${b.id}">Delete</button>
+              </div>
+            </div>
+          `).join("") : `<div class="empty-box">No Panchayat taxes, KSEB bills, or maintenance expenses logged yet.</div>`}
+        </div>
+      `;
+    }
+
+    function renderAlertsTab() {
+      const pendingRooms = state.rooms.filter((r) => r.status === "occupied" && roomPaidForMonth(r.id, state.selectedMonth) < Number(r.rent || 0));
+      const today = todayISO();
+      const soonExpiring = state.rooms.filter((r) => r.status === "occupied" && r.leaseEnd && r.leaseEnd <= new Date(Date.now() + 45 * 86400000).toISOString().slice(0, 10));
+
+      document.getElementById("tab-alerts").innerHTML = `
+        <div class="sec-head">
+          <div class="sec-title">Pending Rent Reminders (${monthLabelFromKey(state.selectedMonth)})</div>
+        </div>
+        <div class="panel">
+          ${pendingRooms.length ? pendingRooms.map((r) => {
+            const due = Math.max(0, Number(r.rent || 0) - roomPaidForMonth(r.id, state.selectedMonth));
+            return `
+              <div class="list-item">
+                <div>
+                  <div style="font-weight:800;font-size:14px;">${r.code} — ${r.unitName}</div>
+                  <div style="font-size:12px;color:var(--muted);">${r.tenantName || "Tenant"} • Due: ${formatINR(due)}</div>
+                </div>
+                <button type="button" class="btn btn-primary btn-sm" data-action="wa-remind" data-room="${r.id}">WhatsApp Remind</button>
+              </div>
+            `;
+          }).join("") : `<div class="empty-box">All rented commercial rooms are paid for ${monthLabelFromKey(state.selectedMonth)}!</div>`}
+        </div>
+
+        <div class="sec-head">
+          <div class="sec-title">Lease Renewals (Next 45 Days)</div>
+        </div>
+        <div class="panel">
+          ${soonExpiring.length ? soonExpiring.map((r) => `
+            <div class="list-item">
+              <div>
+                <div style="font-weight:800;font-size:14px;">${r.code} — ${r.unitName}</div>
+                <div style="font-size:12px;color:var(--amber);">Lease ends: ${formatDisplayDate(r.leaseEnd)} (${r.leaseEnd < today ? "Expired" : "Upcoming"})</div>
+              </div>
+              <button type="button" class="btn btn-outline btn-sm" data-action="open-room-details" data-room="${r.id}">Update</button>
+            </div>
+          `).join("") : `<div class="empty-box">No lease agreements expiring within the next 45 days.</div>`}
+        </div>
+      `;
+    }
+
+    function renderAll() {
+      populateRoomDropdowns();
+      populateCollectorDropdowns();
+      renderHeaderAndKPIs();
+      renderFloorTab();
+      renderRentTab();
+      renderBillsTab();
+      renderAlertsTab();
+
+      ["floor", "rent", "bills", "alerts"].forEach((t) => {
+        document.getElementById("tab-" + t).classList.toggle("hidden", state.activeTab !== t);
+      });
+      document.querySelectorAll("#bottomNav .nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.getAttribute("data-tab") === state.activeTab);
+      });
+    }
+
+    /* ---------------- DATE-RANGE EXPORT ENGINE (FROM DATE -> TO DATE) ---------------- */
+    function getRangeDataset(fromDate, toDate, roomFilter) {
+      const payments = state.payments.filter((p) => {
+        const d = p.date || "";
+        const inRange = (!fromDate || d >= fromDate) && (!toDate || d <= toDate);
+        const roomOk = roomFilter === "ALL" || p.roomId === roomFilter;
+        return inRange && roomOk;
+      }).sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+
+      const bills = (roomFilter === "ALL" || roomFilter === "Building-Wide")
+        ? state.bills.filter((b) => {
+            const d = b.date || "";
+            return (!fromDate || d >= fromDate) && (!toDate || d <= toDate);
+          }).sort((a, b) => (a.date || "").localeCompare(b.date || ""))
+        : [];
+
+      const totalCollected = payments.reduce((s, p) => s + Number(p.amount || 0), 0);
+      const totalBills = bills.reduce((s, b) => s + Number(b.amount || 0), 0);
+      const netBalance = totalCollected - totalBills;
+
+      return { payments, bills, totalCollected, totalBills, netBalance };
+    }
+
+    function updateExportPreview() {
+      const from = document.getElementById("exportFromDate").value;
+      const to = document.getElementById("exportToDate").value;
+      const rf = document.getElementById("exportRoomFilter").value;
+      const data = getRangeDataset(from, to, rf);
+
+      document.getElementById("exportPreviewBox").innerHTML = `
+        <div style="font-weight:800;color:var(--text);margin-bottom:4px;">
+          Range Preview: ${from ? formatDisplayDate(from) : "Start"} to ${to ? formatDisplayDate(to) : "Today"}
+        </div>
+        <div>Rent Entries Found: <strong>${data.payments.length}</strong> (Total Collected: <strong style="color:var(--emerald);">${formatINR(data.totalCollected)}</strong>)</div>
+        <div>Tax &amp; Bill Entries Found: <strong>${data.bills.length}</strong> (Total Paid: <strong style="color:var(--red);">${formatINR(data.totalBills)}</strong>)</div>
+        <div>Net Balance in Range: <strong style="color:var(--indigo);">${formatINR(data.netBalance)}</strong></div>
+      `;
+    }
+
+    async function exportDateRangePDF() {
+      const from = document.getElementById("exportFromDate").value;
+      const to = document.getElementById("exportToDate").value;
+      const rf = document.getElementById("exportRoomFilter").value;
+      if (!from || !to) {
+        showToast("Please select both From Date and To Date");
+        return;
+      }
+      const data = getRangeDataset(from, to, rf);
+
+      const lines = [
+        { text: "CRESCENT BUILDING - VILLIAPPALLY", bold: true, size: 15 },
+        { text: `COMPLETE STATEMENT (${formatDisplayDate(from)} to ${formatDisplayDate(to)})`, bold: true, size: 11 },
+        { text: `Scope: ${rf === "ALL" ? "All Units & Building Expenses" : rf} | Generated: ${formatDisplayDate(todayISO())}`, size: 9 },
+        "--------------------------------------------------------------------------------------",
+        { text: "FINANCIAL SUMMARY FOR SELECTED PERIOD", bold: true, size: 11 },
+        `Total Rent Collected (${data.payments.length} entries): ${formatINR(data.totalCollected)}`,
+        `Total Taxes & Bills Paid (${data.bills.length} entries): ${formatINR(data.totalBills)}`,
+        `Net Balance (Collected - Bills): ${formatINR(data.netBalance)}`,
+        "--------------------------------------------------------------------------------------",
+        { text: "RENT COLLECTION TRANSACTIONS", bold: true, size: 11 }
+      ];
+
+      if (data.payments.length) {
+        data.payments.forEach((p, idx) => {
+          const r = state.rooms.find((x) => x.id === p.roomId);
+          const label = r ? `${r.code} (${r.tenantName || r.unitName})` : p.roomId;
+          lines.push(`${idx + 1}. ${formatDisplayDate(p.date)} | ${label} | ${formatINR(p.amount)} | ${p.mode} | By ${p.collector}${p.note ? " | " + p.note : ""}`);
+        });
+      } else {
+        lines.push("No rent collections recorded in this date range.");
+      }
+
+      lines.push("--------------------------------------------------------------------------------------");
+      lines.push({ text: "PANCHAYAT TAXES, UTILITIES & EXPENSES", bold: true, size: 11 });
+
+      if (data.bills.length) {
+        data.bills.forEach((b, idx) => {
+          lines.push(`${idx + 1}. ${formatDisplayDate(b.date)} | ${b.category} | ${formatINR(b.amount)} | By ${b.paidBy} | ${b.desc}`);
+        });
+      } else {
+        lines.push("No taxes or bills recorded in this date range.");
+      }
+
+      lines.push("--------------------------------------------------------------------------------------");
+      lines.push({ text: "CURRENT UNIT OCCUPANCY & RENT SCHEDULE", bold: true, size: 11 });
+      state.rooms.forEach((r) => {
+        const st = r.status === "family" ? "Family/Rent-Free" : r.status === "occupied" ? "Rented" : "Vacant";
+        lines.push(`${r.code} | ${r.unitName} | ${st} | Tenant: ${r.tenantName || "-"} | Monthly: ${formatINR(r.rent)}`);
+      });
+
+      const blob = buildPDFBlob(lines);
+      await shareOrDownloadFile(blob, `Crescent_Total_${from}_to_${to}.pdf`, `Crescent Building (${from} to ${to})`);
+    }
+
+    async function exportDateRangeCSV() {
+      const from = document.getElementById("exportFromDate").value;
+      const to = document.getElementById("exportToDate").value;
+      const rf = document.getElementById("exportRoomFilter").value;
+      if (!from || !to) {
+        showToast("Please select both From Date and To Date");
+        return;
+      }
+      const data = getRangeDataset(from, to, rf);
+      const esc = (v) => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`;
+
+      const rows = [
+        ["CRESCENT BUILDING - VILLIAPPALLY", `From ${from} to ${to}`, `Scope: ${rf}`],
+        [],
+        ["SUMMARY", "Amount (INR)"],
+        ["Total Rent Collected", data.totalCollected],
+        ["Total Taxes & Bills Paid", data.totalBills],
+        ["Net Balance", data.netBalance],
+        [],
+        ["RENT COLLECTIONS"],
+        ["Date", "Billing Month", "Room Code", "Unit Name", "Tenant", "Amount (INR)", "Payment Mode", "Collected By", "Notes"]
+      ];
+
+      data.payments.forEach((p) => {
+        const r = state.rooms.find((x) => x.id === p.roomId);
+        rows.push([
+          p.date,
+          p.month,
+          r ? r.code : p.roomId,
+          r ? r.unitName : "",
+          r ? r.tenantName : "",
+          p.amount,
+          p.mode,
+          p.collector,
+          p.note || ""
+        ]);
+      });
+
+      rows.push([]);
+      rows.push(["TAXES, BILLS & EXPENSES"]);
+      rows.push(["Date", "Category", "Description", "Amount (INR)", "Paid By"]);
+      data.bills.forEach((b) => {
+        rows.push([b.date, b.category, b.desc, b.amount, b.paidBy]);
+      });
+
+      rows.push([]);
+      rows.push(["CURRENT ROOM DIRECTORY"]);
+      rows.push(["Room Code", "Floor", "Unit Name", "Status", "Tenant Name", "Phone", "Monthly Rent (INR)", "Deposit (INR)", "Lease End"]);
+      state.rooms.forEach((r) => {
+        rows.push([r.code, r.floor, r.unitName, r.status, r.tenantName, r.tenantPhone, r.rent, r.deposit, r.leaseEnd]);
+      });
+
+      const csvContent = "\uFEFF" + rows.map((row) => row.map(esc).join(",")).join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      await shareOrDownloadFile(blob, `Crescent_Total_${from}_to_${to}.csv`, `Crescent Building CSV (${from} to ${to})`);
+    }
+
+    async function exportDateRangeJSON() {
+      const from = document.getElementById("exportFromDate").value;
+      const to = document.getElementById("exportToDate").value;
+      const rf = document.getElementById("exportRoomFilter").value;
+      if (!from || !to) {
+        showToast("Please select both From Date and To Date");
+        return;
+      }
+      const data = getRangeDataset(from, to, rf);
+      const payload = {
+        building: "Crescent Building, Villiappally",
+        exportedAt: new Date().toISOString(),
+        fromDate: from,
+        toDate: to,
+        roomFilter: rf,
+        summary: {
+          totalCollected: data.totalCollected,
+          totalBills: data.totalBills,
+          netBalance: data.netBalance
+        },
+        payments: data.payments,
+        bills: data.bills,
+        roomsSnapshot: state.rooms
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      await shareOrDownloadFile(blob, `Crescent_Range_${from}_to_${to}.json`, `Crescent JSON (${from} to ${to})`);
+    }
+
+    async function shareCurrentMonthPDF() {
+      const ym = state.selectedMonth;
+      const m = getMonthMetrics(ym);
+      const lines = [
+        { text: "CRESCENT BUILDING - VILLIAPPALLY", bold: true, size: 15 },
+        { text: `Monthly Rent & Expense Statement (${monthLabelFromKey(ym)})`, bold: true, size: 11 },
+        { text: `Prepared by: ${state.role} | Date: ${formatDisplayDate(todayISO())}`, size: 9 },
+        "--------------------------------------------------------------------------------------",
+        { text: "MONTHLY SUMMARY", bold: true, size: 11 },
+        `Expected Rent: ${formatINR(m.expected)} (${m.rentedCount} rented, ${m.familyCount} family)`,
+        `Collected (${monthLabelFromKey(ym)}): ${formatINR(m.collected)}`,
+        `Pending Dues: ${formatINR(m.pending)}`,
+        `Taxes & Bills Paid: ${formatINR(m.billsPaid)}`,
+        `Net w/ Najeeba: ${formatINR(m.netWithNajeeba)}`,
+        "--------------------------------------------------------------------------------------",
+        { text: "ROOM-WISE STATUS", bold: true, size: 11 }
+      ];
+
+      state.rooms.forEach((r) => {
+        const paid = roomPaidForMonth(r.id, ym);
+        const st = r.status === "family"
+          ? "Family / Rent-Free"
+          : r.status === "vacant"
+            ? "Vacant"
+            : `Rent ${formatINR(r.rent)} | Paid ${formatINR(paid)} | Due ${formatINR(Math.max(0, r.rent - paid))}`;
+        lines.push(`${r.code} | ${r.unitName} (${r.tenantName || "-"}) | ${st}`);
+      });
+
+      const docs = await getAllDocs();
+      if (docs.length) {
+        lines.push("--------------------------------------------------------------------------------------");
+        lines.push({ text: `SAVED BUILDING DOCUMENTS (${docs.length})`, bold: true, size: 11 });
+        docs.forEach((d, i) => lines.push(`${i + 1}. [${d.room}] ${d.title} (${d.category}) - ${d.date}`));
+      }
+
+      const blob = buildPDFBlob(lines);
+      await shareOrDownloadFile(blob, `Crescent_${ym}.pdf`, `Crescent Building - ${monthLabelFromKey(ym)}`);
+    }
+
+    /* ---------------- DOCUMENT VAULT RENDER ---------------- */
+    async function renderDocsVault() {
+      const all = await getAllDocs();
+      document.getElementById("topDocsBtn").textContent = `Docs (${all.length})`;
+
+      const filter = document.getElementById("docFilterRoom").value || "ALL";
+      const items = filter === "ALL" ? all : all.filter((d) => d.room === filter);
+      const listEl = document.getElementById("docsList");
+
+      if (!items.length) {
+        listEl.innerHTML = `<div class="empty-box">No documents saved for this selection yet.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = items.map((d) => `
+        <div class="panel" style="padding:11px;margin-bottom:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+            <div>
+              <div style="font-weight:800;font-size:13px;">${d.title}</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px;">${d.room} • ${d.category} • ${d.date}</div>
+            </div>
+            <span class="status-pill pill-family">${(d.mimeType || "").includes("pdf") ? "PDF" : "IMAGE"}</span>
+          </div>
+          <div class="btn-row" style="margin-top:8px;">
+            <button type="button" class="btn btn-outline btn-sm" style="flex:1;" data-doc-act="view" data-doc-id="${d.id}">View</button>
+            <button type="button" class="btn btn-blue btn-sm" style="flex:1;" data-doc-act="share" data-doc-id="${d.id}">Share</button>
+            <button type="button" class="btn btn-primary btn-sm" style="flex:1;" data-doc-act="download" data-doc-id="${d.id}">Save</button>
+            <button type="button" class="btn btn-danger btn-sm" data-doc-act="delete" data-doc-id="${d.id}">X</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    /* ---------------- EVENT HANDLERS ---------------- */
+    document.getElementById("monthSelect").addEventListener("change", (e) => {
+      state.selectedMonth = e.target.value;
+      persist();
+      renderAll();
     });
-    persist();
-    document.getElementById("expenseModal").classList.add("hidden");
-    renderAll();
-    showToast("Tax / Bill saved");
-  });
 
-  document.getElementById("monthSelect").addEventListener("change", function(e) {
-    state.selectedMonth = e.target.value;
-    persist();
-    renderAll();
-  });
+    document.addEventListener("click", async (e) => {
+      // Role switch
+      const roleBtn = e.target.closest("[data-role]");
+      if (roleBtn) {
+        state.role = roleBtn.getAttribute("data-role");
+        persist();
+        renderAll();
+        return;
+      }
 
-  document.getElementById("importJsonInput").addEventListener("change", function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(ev) {
-      try {
-        const parsed = JSON.parse(ev.target.result);
-        if (parsed && Array.isArray(parsed.rooms)) {
-          state = parsed;
+      // Bottom tab switch
+      const tabBtn = e.target.closest("[data-tab]");
+      if (tabBtn) {
+        state.activeTab = tabBtn.getAttribute("data-tab");
+        persist();
+        renderAll();
+        return;
+      }
+
+      // Close modals
+      const closeBtn = e.target.closest("[data-close]");
+      if (closeBtn) {
+        document.getElementById(closeBtn.getAttribute("data-close")).classList.remove("open");
+        return;
+      }
+      if (e.target.classList.contains("modal-backdrop")) {
+        e.target.classList.remove("open");
+        return;
+      }
+
+      // Date-range quick presets
+      const presetBtn = e.target.closest("[data-preset]");
+      if (presetBtn) {
+        const p = presetBtn.getAttribute("data-preset");
+        const now = new Date();
+        let from = "";
+        let to = todayISO();
+        if (p === "this-month") {
+          from = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-01`;
+        } else if (p === "last-month") {
+          const prev = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+          const lastDay = new Date(now.getFullYear(), now.getMonth(), 0);
+          from = `${prev.getFullYear()}-${String(prev.getMonth() + 1).padStart(2, "0")}-01`;
+          to = `${lastDay.getFullYear()}-${String(lastDay.getMonth() + 1).padStart(2, "0")}-${String(lastDay.getDate()).padStart(2, "0")}`;
+        } else if (p === "last-3m") {
+          const past = new Date(now.getFullYear(), now.getMonth() - 2, 1);
+          from = `${past.getFullYear()}-${String(past.getMonth() + 1).padStart(2, "0")}-01`;
+        } else if (p === "fy") {
+          from = `${now.getFullYear()}-01-01`;
+        } else if (p === "all") {
+          from = "2020-01-01";
+        }
+        document.getElementById("exportFromDate").value = from;
+        document.getElementById("exportToDate").value = to;
+        updateExportPreview();
+        return;
+      }
+
+      // Document vault item actions
+      const docActBtn = e.target.closest("[data-doc-act]");
+      if (docActBtn) {
+        const act = docActBtn.getAttribute("data-doc-act");
+        const id = docActBtn.getAttribute("data-doc-id");
+        const all = await getAllDocs();
+        const doc = all.find((x) => x.id === id);
+        if (!doc) return;
+
+        if (act === "view") {
+          window.open(URL.createObjectURL(doc.blob), "_blank");
+        } else if (act === "share") {
+          await shareOrDownloadFile(doc.blob, doc.fileName || doc.title, doc.title);
+        } else if (act === "download") {
+          const url = URL.createObjectURL(doc.blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = doc.fileName || doc.title;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 4000);
+        } else if (act === "delete") {
+          if (confirm(`Delete "${doc.title}"?`)) {
+            await deleteDocRecord(id);
+            await renderDocsVault();
+            showToast("Document deleted");
+          }
+        }
+        return;
+      }
+
+      // General Actions
+      const actBtn = e.target.closest("[data-action]");
+      if (!actBtn) return;
+      const action = actBtn.getAttribute("data-action");
+      const roomId = actBtn.getAttribute("data-room");
+
+      if (action === "open-log-rent") {
+        const r = state.rooms.find((x) => x.id === roomId);
+        if (!r) return;
+        const due = Math.max(1, Number(r.rent || 0) - roomPaidForMonth(r.id, state.selectedMonth));
+        document.getElementById("rentModalTitle").textContent = `Log Rent — ${r.code} (${monthLabelFromKey(state.selectedMonth)})`;
+        document.getElementById("rentRoomId").value = r.id;
+        document.getElementById("rentAmount").value = due;
+        document.getElementById("rentDate").value = todayISO();
+        document.getElementById("rentCollector").value = state.collectors.includes(state.role) ? state.role : state.collectors[0];
+        document.getElementById("rentNote").value = "";
+        document.getElementById("rentModal").classList.add("open");
+      } else if (action === "open-room-details") {
+        const r = state.rooms.find((x) => x.id === roomId);
+        if (!r) return;
+        document.getElementById("roomModalTitle").textContent = `${r.code} — Unit Details`;
+        document.getElementById("editRoomId").value = r.id;
+        document.getElementById("editUnitName").value = r.unitName;
+        document.getElementById("editStatus").value = r.status;
+        document.getElementById("editTenantName").value = r.tenantName || "";
+        document.getElementById("editTenantPhone").value = r.tenantPhone || "";
+        document.getElementById("editRent").value = r.rent || 0;
+        document.getElementById("editDeposit").value = r.deposit || 0;
+        document.getElementById("editLeaseStart").value = r.leaseStart || "";
+        document.getElementById("editLeaseEnd").value = r.leaseEnd || "";
+        document.getElementById("editNotes").value = r.notes || "";
+        const delBtn = document.getElementById("deleteCustomRoomBtn");
+        delBtn.classList.toggle("hidden", !r.custom);
+        document.getElementById("roomModal").classList.add("open");
+      } else if (action === "open-for-rent") {
+        const r = state.rooms.find((x) => x.id === roomId);
+        if (!r) return;
+        if (confirm(`Convert ${r.code} (${r.unitName}) from Rent-Free Family Use to Commercial Rent?`)) {
+          r.status = "vacant";
+          r.tenantName = "";
+          if (!r.rent || Number(r.rent) === 0) r.rent = 12000;
+          persist();
+          renderAll();
+          showToast(`${r.code} opened for commercial rent`);
+        }
+      } else if (action === "open-add-room") {
+        document.getElementById("addRoomForm").reset();
+        document.getElementById("newRoomRent").value = 8000;
+        document.getElementById("addRoomModal").classList.add("open");
+      } else if (action === "open-add-bill") {
+        document.getElementById("billForm").reset();
+        document.getElementById("billDate").value = todayISO();
+        document.getElementById("billPaidBy").value = state.collectors.includes(state.role) ? state.role : state.collectors[0];
+        document.getElementById("billModal").classList.add("open");
+      } else if (action === "open-export") {
+        const now = new Date();
+        document.getElementById("exportFromDate").value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-01`;
+        document.getElementById("exportToDate").value = todayISO();
+        updateExportPreview();
+        document.getElementById("exportModal").classList.add("open");
+      } else if (action === "open-docs") {
+        await renderDocsVault();
+        document.getElementById("docsModal").classList.add("open");
+      } else if (action === "share-month-pdf") {
+        await shareCurrentMonthPDF();
+      } else if (action === "wa-report") {
+        const m = getMonthMetrics(state.selectedMonth);
+        const text = `*Crescent Building — Villiappally*\nMonth: *${monthLabelFromKey(state.selectedMonth)}*\n• Expected Rent: ${formatINR(m.expected)}\n• Collected: ${formatINR(m.collected)}\n• Pending Dues: ${formatINR(m.pending)}\n• Bills/Taxes Paid: ${formatINR(m.billsPaid)}\n• Net w/ Najeeba: ${formatINR(m.netWithNajeeba)}`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+      } else if (action === "wa-remind") {
+        const r = state.rooms.find((x) => x.id === roomId);
+        if (!r) return;
+        const due = Math.max(0, Number(r.rent || 0) - roomPaidForMonth(r.id, state.selectedMonth));
+        const msg = `Assalamu Alaikum ${r.tenantName || ""}, friendly reminder from Crescent Building, Villiappally regarding ${monthLabelFromKey(state.selectedMonth)} rent of ${formatINR(due)} for unit ${r.code}. Thank you.`;
+        const phone = (r.tenantPhone || "").replace(/\D/g, "");
+        window.open(`https://wa.me/${phone ? (phone.length === 10 ? "91" + phone : phone) : ""}?text=${encodeURIComponent(msg)}`, "_blank");
+      } else if (action === "del-payment") {
+        const id = actBtn.getAttribute("data-id");
+        if (confirm("Delete this rent entry?")) {
+          state.payments = state.payments.filter((p) => p.id !== id);
+          persist();
+          renderAll();
+          showToast("Rent entry deleted");
+        }
+      } else if (action === "del-bill") {
+        const id = actBtn.getAttribute("data-id");
+        if (confirm("Delete this tax/bill entry?")) {
+          state.bills = state.bills.filter((b) => b.id !== id);
+          persist();
+          renderAll();
+          showToast("Bill deleted");
+        }
+      } else if (action === "open-collectors") {
+        renderCollectorsList();
+        document.getElementById("collectorsModal").classList.add("open");
+      } else if (action === "open-backup") {
+        document.getElementById("backupModal").classList.add("open");
+      }
+    });
+
+    /* ---------------- FORM SUBMISSIONS ---------------- */
+    document.getElementById("rentForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      state.payments.push({
+        id: "pay_" + Date.now(),
+        roomId: document.getElementById("rentRoomId").value,
+        month: state.selectedMonth,
+        amount: Number(document.getElementById("rentAmount").value),
+        date: document.getElementById("rentDate").value,
+        mode: document.getElementById("rentMode").value,
+        collector: document.getElementById("rentCollector").value,
+        note: document.getElementById("rentNote").value.trim()
+      });
+      persist();
+      document.getElementById("rentModal").classList.remove("open");
+      renderAll();
+      showToast("Rent payment recorded");
+    });
+
+    document.getElementById("roomForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = document.getElementById("editRoomId").value;
+      const r = state.rooms.find((x) => x.id === id);
+      if (!r) return;
+      r.unitName = document.getElementById("editUnitName").value.trim();
+      r.status = document.getElementById("editStatus").value;
+      r.tenantName = document.getElementById("editTenantName").value.trim();
+      r.tenantPhone = document.getElementById("editTenantPhone").value.trim();
+      r.rent = r.status === "family" ? 0 : Number(document.getElementById("editRent").value || 0);
+      r.deposit = Number(document.getElementById("editDeposit").value || 0);
+      r.leaseStart = document.getElementById("editLeaseStart").value;
+      r.leaseEnd = document.getElementById("editLeaseEnd").value;
+      r.notes = document.getElementById("editNotes").value.trim();
+      persist();
+      document.getElementById("roomModal").classList.remove("open");
+      renderAll();
+      showToast(`${r.code} updated`);
+    });
+
+    document.getElementById("deleteCustomRoomBtn").addEventListener("click", () => {
+      const id = document.getElementById("editRoomId").value;
+      const r = state.rooms.find((x) => x.id === id);
+      if (!r || !r.custom) return;
+      if (confirm(`Delete added unit ${r.code} (${r.unitName})?`)) {
+        state.rooms = state.rooms.filter((x) => x.id !== id);
+        persist();
+        document.getElementById("roomModal").classList.remove("open");
+        renderAll();
+        showToast(`${r.code} removed`);
+      }
+    });
+
+    document.getElementById("addRoomForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const code = document.getElementById("newRoomCode").value.trim().toUpperCase();
+      if (state.rooms.some((r) => r.code.toUpperCase() === code)) {
+        showToast(`Code "${code}" already exists`);
+        return;
+      }
+      const status = document.getElementById("newRoomStatus").value;
+      state.rooms.push({
+        id: code,
+        code,
+        floor: document.getElementById("newRoomFloor").value,
+        unitName: document.getElementById("newRoomTitle").value.trim(),
+        status,
+        tenantName: document.getElementById("newRoomTenant").value.trim(),
+        tenantPhone: document.getElementById("newRoomPhone").value.trim(),
+        rent: status === "family" ? 0 : Number(document.getElementById("newRoomRent").value || 0),
+        deposit: 0,
+        leaseStart: "",
+        leaseEnd: "",
+        notes: "",
+        custom: true
+      });
+      persist();
+      document.getElementById("addRoomModal").classList.remove("open");
+      renderAll();
+      showToast(`Added ${code}`);
+    });
+
+    document.getElementById("billForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      state.bills.push({
+        id: "bill_" + Date.now(),
+        category: document.getElementById("billCategory").value,
+        amount: Number(document.getElementById("billAmount").value),
+        date: document.getElementById("billDate").value,
+        paidBy: document.getElementById("billPaidBy").value,
+        desc: document.getElementById("billDesc").value.trim()
+      });
+      persist();
+      document.getElementById("billModal").classList.remove("open");
+      renderAll();
+      showToast("Tax / bill saved");
+    });
+
+    // Date-range export listeners
+    ["exportFromDate", "exportToDate", "exportRoomFilter"].forEach((id) => {
+      document.getElementById(id).addEventListener("change", updateExportPreview);
+    });
+    document.getElementById("btnExportRangePDF").addEventListener("click", exportDateRangePDF);
+    document.getElementById("btnExportRangeCSV").addEventListener("click", exportDateRangeCSV);
+    document.getElementById("btnExportRangeJSON").addEventListener("click", exportDateRangeJSON);
+
+    // Document vault form & filter
+    document.getElementById("docForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById("docFile");
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+      await saveDocRecord({
+        id: "doc_" + Date.now(),
+        title: document.getElementById("docTitle").value.trim(),
+        room: document.getElementById("docRoom").value,
+        category: document.getElementById("docCategory").value,
+        fileName: file.name,
+        mimeType: file.type || "application/octet-stream",
+        date: formatDisplayDate(todayISO()),
+        createdAt: Date.now(),
+        blob: file
+      });
+      e.target.reset();
+      await renderDocsVault();
+      showToast("Document saved offline");
+    });
+    document.getElementById("docFilterRoom").addEventListener("change", renderDocsVault);
+
+    // Collectors
+    function renderCollectorsList() {
+      document.getElementById("collectorsList").innerHTML = state.collectors.map((c, idx) => `
+        <div class="list-item">
+          <span style="font-weight:700;font-size:13px;">${c}</span>
+          ${state.collectors.length > 1 ? `<button type="button" class="btn btn-danger btn-sm" data-del-col="${idx}">Remove</button>` : ""}
+        </div>
+      `).join("");
+    }
+    document.getElementById("collectorsList").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-del-col]");
+      if (!btn) return;
+      state.collectors.splice(Number(btn.getAttribute("data-del-col")), 1);
+      persist();
+      renderCollectorsList();
+      populateCollectorDropdowns();
+    });
+    document.getElementById("collectorForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("newCollectorName").value.trim();
+      if (name && !state.collectors.includes(name)) {
+        state.collectors.push(name);
+        persist();
+        renderCollectorsList();
+        populateCollectorDropdowns();
+      }
+      e.target.reset();
+    });
+
+    // Full Backup / Sync
+    document.getElementById("btnExportFullBackup").addEventListener("click", async () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      await shareOrDownloadFile(blob, `Crescent_Backup_${todayISO()}.json`, "Crescent Building Backup");
+    });
+
+    document.getElementById("importBackupFile").addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          if (!Array.isArray(parsed.rooms)) throw new Error("Invalid file");
+          state = { ...defaultState(), ...parsed };
           persist();
           populateMonths();
           renderAll();
-          document.getElementById("backupModal").classList.add("hidden");
+          document.getElementById("backupModal").classList.remove("open");
           showToast("Backup restored successfully");
+        } catch (err) {
+          showToast("Invalid JSON backup file");
         }
-      } catch (err) {
-        showToast("Invalid JSON backup file");
-      }
-    };
-    reader.readAsText(file);
-  });
+      };
+      reader.readAsText(file);
+    });
 
-  populateMonths();
-  renderAll();
-})();if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-  navigator.serviceWorker.register("./sw.js").catch(() => {});
-}
+    // Init
+    populateMonths();
+    renderAll();
+    getAllDocs().then((all) => {
+      document.getElementById("topDocsBtn").textContent = `Docs (${all.length})`;
+    }).catch(() => {});
 
-</script>
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+  })();
+  </script>
 </body>
 </html>
