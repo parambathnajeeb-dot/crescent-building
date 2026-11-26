@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Crescent Building — Villiappally Commercial Manager</title>
+ <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0f172a" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+ 
+<style>
+  :root {
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --navy: #0f172a;
+    --navy-light: #1e293b;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --emerald: #059669;
+    --emerald-bg: #ecfdf5;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --indigo: #4f46e5;
+    --indigo-bg: #eef2ff;
+    --blue: #2563eb;
+    --blue-bg: #eff6ff;
+    --radius: 14px;
+    --shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding-bottom: 84px;
+    line-height: 1.45;
+  }
+
+  /* Header */
+  .topbar {
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 16px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.18);
+  }
+  .topbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .brand h1 { font-size: 17px; font-weight: 700; letter-spacing: -0.2px; }
+  .brand p { font-size: 11.5px; color: #94a3b8; margin-top: 1px; }
+
+  .role-switch {
+    display: inline-flex;
+    background: var(--navy-light);
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+  }
+  .role-btn {
+    border: none;
+    background: transparent;
+    color: #cbd5e1;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .role-btn.active {
+    background: var(--emerald);
+    color: #fff;
+  }
+  .role-btn.active.abroad {
+    background: var(--blue);
+  }
+
+  .header-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    align-items: center;
+  }
+  .month-select {
+    background: var(--navy-light);
+    color: #fff;
+    border: 1px solid #334155;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .pill-btn {
+    background: var(--navy-light);
+    color: #e2e8f0;
+    border: 1px solid #334155;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .pill-btn.whatsapp { background: #15803d; border-color: #16a34a; color: #fff; }
+  .pill-btn.unlock { background: var(--amber); border-color: #f59e0b; color: #fff; }
+
+  /* Monitor Banner */
+  .monitor-banner {
+    background: var(--blue-bg);
+    border-bottom: 1px solid #bfdbfe;
+    color: #1e40af;
+    padding: 9px 16px;
+    font-size: 12.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .hidden { display: none !important; }
+
+  /* Container */
+  .container { max-width: 960px; margin: 0 auto; padding: 14px; }
+
+  /* KPI Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  @media (min-width: 680px) {
+    .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
+  }
+  .kpi-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+  .kpi-val { font-size: 19px; font-weight: 800; margin-top: 4px; }
+  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .text-emerald { color: var(--emerald); }
+  .text-amber { color: var(--amber); }
+  .text-indigo { color: var(--indigo); }
+
+  /* Section Headings */
+  .sec-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 10px;
+  }
+  .sec-title { font-size: 14.5px; font-weight: 700; color: var(--navy); }
+  .sec-badge {
+    font-size: 11px;
+    background: #e2e8f0;
+    color: #334155;
+    padding: 3px 8px;
+    border-radius: 99px;
+    font-weight: 600;
+  }
+
+  /* Room Cards Grid */
+  .room-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+  @media (min-width: 620px) {
+    .room-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .room-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 13px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--muted);
+  }
+  .room-card.status-occupied { border-left-color: var(--emerald); }
+  .room-card.status-due { border-left-color: var(--amber); }
+  .room-card.status-vacant { border-left-color: #94a3b8; }
+  .room-card.status-family { border-left-color: var(--indigo); }
+
+  .room-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .room-id {
+    font-size: 13px;
+    font-weight: 800;
+    background: var(--navy);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 7px;
+    display: inline-block;
+  }
+  .room-shop { font-size: 15px; font-weight: 700; margin-top: 5px; }
+  .room-tenant { font-size: 12.5px; color: var(--muted); }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+  .badge-paid { background: var(--emerald-bg); color: var(--emerald); }
+  .badge-due { background: var(--amber-bg); color: var(--amber); }
+  .badge-vacant { background: #f1f5f9; color: #475569; }
+  .badge-family { background: var(--indigo-bg); color: var(--indigo); }
+
+  .room-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 12px;
+    color: #334155;
+  }
+  .room-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 11px;
+  }
+  .btn {
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 11px;
+    border-radius: 9px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn-primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .btn-emerald { background: var(--emerald); color: #fff; border-color: var(--emerald); }
+  .btn-indigo { background: var(--indigo-bg); color: var(--indigo); border-color: #c7d2fe; }
+  .btn-amber { background: var(--amber-bg); color: var(--amber); border-color: #fde68a; }
+  .btn-danger { background: var(--red-bg); color: var(--red); border-color: #fecaca; }
+
+  /* Cards & Lists */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: var(--shadow);
+    margin-bottom: 12px;
+  }
+  .list-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+  }
+  .list-row:last-child { border-bottom: none; }
+
+  /* Forms */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 560px) {
+    .form-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+  .field label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 4px;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 13.5px;
+    background: #fff;
+    color: var(--text);
+  }
+  .field textarea { min-height: 64px; resize: vertical; }
+
+  .family-callout {
+    background: var(--indigo-bg);
+    border: 1px solid #c7d2fe;
+    border-radius: 10px;
+    padding: 11px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    z-index: 45;
+    padding: 6px 4px;
+    box-shadow: 0 -2px 12px rgba(15,23,42,0.06);
+  }
+  .nav-btn {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 4px;
+    border-radius: 9px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .nav-btn.active { color: var(--emerald); background: var(--emerald-bg); }
+
+  /* Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.62);
+    z-index: 60;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  @media (min-width: 640px) {
+    .modal-backdrop { align-items: center; padding: 16px; }
+  }
+  .modal-box {
+    background: var(--surface);
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 18px 18px 0 0;
+    padding: 16px;
+  }
+  @media (min-width: 640px) {
+    .modal-box { border-radius: 16px; }
+  }
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+  }
+  .modal-title { font-size: 16px; font-weight: 800; }
+  .toast {
+    position: fixed;
+    top: 76px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--navy);
+    color: #fff;
+    padding: 9px 16px;
+    border-radius: 99px;
+    font-size: 12.5px;
+    font-weight: 600;
+    z-index: 90;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-row">
+    <div class="brand">
+      <h1>Crescent Building</h1>
+      <p>Villiappally • 9 Commercial Rooms (4 GF + 5 FF)</p>
+    </div>
+    <div class="role-switch">
+      <button type="button" class="role-btn active" data-action="set-role" data-role="najeeba">Najeeba (On-Site)</button>
+      <button type="button" class="role-btn" data-action="set-role" data-role="najeeb">Najeeb (Abroad)</button>
+    </div>
+  </div>
+  <div class="header-controls">
+    <select id="monthSelect" class="month-select" aria-label="Billing Month"></select>
+    <button type="button" class="pill-btn whatsapp" data-action="send-report">WhatsApp Report</button>
+    <button type="button" class="pill-btn" data-action="open-collectors">Collectors</button>
+    <button type="button" class="pill-btn" data-action="open-backup">Backup / Sync</button>
+  </div>
+</header>
+
+<div id="monitorBanner" class="monitor-banner hidden">
+  <span><strong>Safe Monitor View (Najeeb):</strong> Read-only mode active.</span>
+  <button type="button" class="pill-btn unlock" data-action="unlock-edits">Enable Edits</button>
+</div>
+
+<main class="container">
+  <!-- KPI Strip -->
+  <section class="kpi-grid" id="kpiGrid"></section>
+
+  <!-- TAB 1: FLOOR PLAN -->
+  <section id="tab-floors">
+    <div class="sec-head">
+      <span class="sec-title">First Floor (5 Rooms)</span>
+      <span class="sec-badge">F1 – F5</span>
+    </div>
+    <div class="room-grid" id="firstFloorGrid"></div>
+
+    <div class="sec-head">
+      <span class="sec-title">Ground Floor (4 Road-Facing Rooms)</span>
+      <span class="sec-badge">G1 – G4</span>
+    </div>
+    <div class="room-grid" id="groundFloorGrid"></div>
+  </section>
+
+  <!-- TAB 2: RENT SHEET -->
+  <section id="tab-rent" class="hidden">
+    <div class="sec-head">
+      <span class="sec-title">Monthly Rent Ledger</span>
+      <button type="button" class="btn btn-emerald" data-action="mark-all-paid">Mark All Rented Paid</button>
+    </div>
+    <div class="card" id="rentLedgerList"></div>
+  </section>
+
+  <!-- TAB 3: TAXES & EXPENSES -->
+  <section id="tab-taxes" class="hidden">
+    <div class="sec-head">
+      <span class="sec-title">Panchayat Tax, KSEB & Repairs</span>
+      <button type="button" class="btn btn-primary" data-action="open-expense-modal">+ Add Bill / Tax</button>
+    </div>
+    <div class="card" id="expenseList"></div>
+  </section>
+
+  <!-- TAB 4: REMINDERS & ALERTS -->
+  <section id="tab-alerts" class="hidden">
+    <div class="sec-head">
+      <span class="sec-title">Rent & Agreement Alerts</span>
+    </div>
+    <div class="card" id="alertsList"></div>
+  </section>
+</main>
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+  <button type="button" class="nav-btn active" data-action="switch-tab" data-tab="floors">Floor Plan</button>
+  <button type="button" class="nav-btn" data-action="switch-tab" data-tab="rent">Rent Sheet</button>
+  <button type="button" class="nav-btn" data-action="switch-tab" data-tab="taxes">Taxes & Bills</button>
+  <button type="button" class="nav-btn" data-action="switch-tab" data-tab="alerts">Alerts</button>
+</nav>
+
+<!-- ROOM DETAILS MODAL -->
+<div id="roomModal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title" id="roomModalTitle">Edit Room</span>
+      <button type="button" class="btn" data-action="close-modal" data-modal="roomModal">Close</button>
+    </div>
+
+    <div id="familyConvertBox" class="family-callout hidden">
+      <div>
+        <strong style="font-size:13px; color:#312e81;">Owner / Family Use (Rent-Free)</strong>
+        <div style="font-size:12px; color:#4338ca;">If no longer needed for family use, switch to commercial rent in one tap.</div>
+      </div>
+      <button type="button" class="btn btn-primary" data-action="convert-family-to-rent">Open for Commercial Rent</button>
+    </div>
+
+    <form id="roomForm" class="form-grid form-grid-2">
+      <input type="hidden" id="editRoomId" />
+      <div class="field">
+        <label>Room Status</label>
+        <select id="editStatus">
+          <option value="occupied">Occupied (Rented)</option>
+          <option value="vacant">Vacant (Available for Rent)</option>
+          <option value="family">Owner / Family Use (Rent-Free)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Shop / Business Name</label>
+        <input type="text" id="editShop" placeholder="e.g., City Supermarket" />
+      </div>
+      <div class="field">
+        <label>Tenant / Occupant Name</label>
+        <input type="text" id="editTenant" placeholder="e.g., Abdul Kareem" />
+      </div>
+      <div class="field">
+        <label>Phone Number (WhatsApp)</label>
+        <input type="tel" id="editPhone" placeholder="e.g., 9847012345" />
+      </div>
+      <div class="field">
+        <label>Monthly Rent (₹)</label>
+        <input type="number" id="editRent" min="0" step="100" />
+      </div>
+      <div class="field">
+        <label>Security Advance (₹)</label>
+        <input type="number" id="editAdvance" min="0" step="500" />
+      </div>
+      <div class="field">
+        <label>KSEB Consumer No.</label>
+        <input type="text" id="editKseb" placeholder="e.g., 116540012345" />
+      </div>
+      <div class="field">
+        <label>ID Proof / GST / Reg No.</label>
+        <input type="text" id="editIdProof" placeholder="Aadhaar / GST / Panchayat License" />
+      </div>
+      <div class="field">
+        <label>Agreement Start Date</label>
+        <input type="date" id="editStart" />
+      </div>
+      <div class="field">
+        <label>Agreement Expiry Date</label>
+        <input type="date" id="editExpiry" />
+      </div>
+      <div class="field" style="grid-column: 1 / -1;">
+        <label>Notes / Agreement Terms</label>
+        <textarea id="editNotes" placeholder="Water share, annual increment %, shutter repairs..."></textarea>
+      </div>
+      <div style="grid-column: 1 / -1; display:flex; gap:8px; justify-content:flex-end; margin-top:6px;">
+        <button type="button" class="btn" data-action="close-modal" data-modal="roomModal">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="saveRoomBtn">Save Room Details</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- LOG RENT MODAL -->
+<div id="rentModal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title" id="rentModalTitle">Record Rent Payment</span>
+      <button type="button" class="btn" data-action="close-modal" data-modal="rentModal">Close</button>
+    </div>
+    <form id="rentForm" class="form-grid form-grid-2">
+      <input type="hidden" id="rentRoomId" />
+      <div class="field">
+        <label>Amount Received (₹)</label>
+        <input type="number" id="rentAmount" required min="0" />
+      </div>
+      <div class="field">
+        <label>Payment Date</label>
+        <input type="date" id="rentDate" required />
+      </div>
+      <div class="field">
+        <label>Payment Mode</label>
+        <select id="rentMode">
+          <option value="UPI / GPay">UPI / GPay</option>
+          <option value="Cash">Cash</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Collected By</label>
+        <select id="rentCollector"></select>
+      </div>
+      <div class="field" style="grid-column: 1 / -1;">
+        <label>Reference / Receipt Note</label>
+        <input type="text" id="rentRef" placeholder="UPI Ref / Receipt #" />
+      </div>
+      <div style="grid-column: 1 / -1; display:flex; gap:8px; justify-content:space-between; margin-top:6px;">
+        <button type="button" class="btn btn-danger" data-action="clear-rent-payment">Mark Unpaid</button>
+        <div style="display:flex; gap:8px;">
+          <button type="button" class="btn" data-action="close-modal" data-modal="rentModal">Cancel</button>
+          <button type="submit" class="btn btn-emerald">Save Payment</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- EXPENSE / TAX MODAL -->
+<div id="expenseModal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title">Add Panchayat Tax / Building Bill</span>
+      <button type="button" class="btn" data-action="close-modal" data-modal="expenseModal">Close</button>
+    </div>
+    <form id="expenseForm" class="form-grid form-grid-2">
+      <div class="field">
+        <label>Category</label>
+        <select id="expCategory">
+          <option value="Villiappally Panchayat Property Tax">Villiappally Panchayat Property Tax</option>
+          <option value="Village Office Building Tax">Village Office Building Tax</option>
+          <option value="KSEB Common / Motor Bill">KSEB Common / Motor Bill</option>
+          <option value="Plumbing / Shutter / Maintenance">Plumbing / Shutter / Maintenance</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Room (Optional)</label>
+        <select id="expRoom">
+          <option value="Building Common">Building Common</option>
+          <option value="G1">G1</option><option value="G2">G2</option><option value="G3">G3</option><option value="G4">G4</option>
+          <option value="F1">F1</option><option value="F2">F2</option><option value="F3">F3</option><option value="F4">F4</option><option value="F5">F5</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Amount (₹)</label>
+        <input type="number" id="expAmount" required min="1" />
+      </div>
+      <div class="field">
+        <label>Paid Date</label>
+        <input type="date" id="expDate" required />
+      </div>
+      <div class="field">
+        <label>Paid By</label>
+        <select id="expPaidBy"></select>
+      </div>
+      <div class="field">
+        <label>Receipt / Assessment No.</label>
+        <input type="text" id="expNote" placeholder="e.g., Door No / Receipt #" />
+      </div>
+      <div style="grid-column: 1 / -1; display:flex; gap:8px; justify-content:flex-end; margin-top:6px;">
+        <button type="button" class="btn" data-action="close-modal" data-modal="expenseModal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Record</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- COLLECTORS MODAL -->
+<div id="collectorsModal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title">Edit Collectors / Handlers</span>
+      <button type="button" class="btn" data-action="close-modal" data-modal="collectorsModal">Close</button>
+    </div>
+    <p style="font-size:12.5px; color:var(--muted); margin-bottom:10px;">Najeeba is set as the primary on-site collector. Add or rename other handlers below.</p>
+    <div id="collectorsList" style="margin-bottom:12px;"></div>
+    <div style="display:flex; gap:8px;">
+      <input type="text" id="newCollectorInput" placeholder="Add new name (e.g., Bank Direct)" style="flex:1; padding:9px; border:1px solid #cbd5e1; border-radius:9px;" />
+      <button type="button" class="btn btn-primary" data-action="add-collector">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- BACKUP / SYNC MODAL -->
+<div id="backupModal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title">Backup, Export & Phone Sync</span>
+      <button type="button" class="btn" data-action="close-modal" data-modal="backupModal">Close</button>
+    </div>
+    <div style="display:grid; gap:10px;">
+      <button type="button" class="btn btn-primary" data-action="export-json">Download Full Backup (.json)</button>
+      <button type="button" class="btn" data-action="export-csv">Export Room & Rent Summary (.csv)</button>
+      <div class="field" style="margin-top:6px;">
+        <label>Restore / Merge Backup File (.json)</label>
+        <input type="file" id="importJsonInput" accept=".json" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script>
+(function() {
+  const STORAGE_KEY = "crescent_building_villiappally_v1";
+  let memoryFallback = null;
+
+  function safeLoad() {
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return memoryFallback;
+  }
+
+  function safeSave(data) {
+    memoryFallback = data;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  const defaultRooms = [
+    { id: "F1", floor: "First Floor", status: "occupied", shop: "First Floor Unit 1", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "F2", floor: "First Floor", status: "vacant", shop: "First Floor Unit 2", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "F3", floor: "First Floor", status: "vacant", shop: "First Floor Unit 3", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "F4", floor: "First Floor", status: "vacant", shop: "First Floor Unit 4", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "F5", floor: "First Floor", status: "vacant", shop: "First Floor Unit 5", tenant: "", phone: "", rent: 8000, advance: 25000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "G1", floor: "Ground Floor", status: "occupied", shop: "Ground Shop 1", tenant: "", phone: "", rent: 12000, advance: 40000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "G2", floor: "Ground Floor", status: "family", shop: "Moosa General Store", tenant: "Moosa (Father-in-law)", phone: "", rent: 0, advance: 0, kseb: "", idProof: "", start: "", expiry: "", notes: "Owner / Family Use (Rent-Free)" },
+    { id: "G3", floor: "Ground Floor", status: "vacant", shop: "Ground Shop 3", tenant: "", phone: "", rent: 12000, advance: 40000, kseb: "", idProof: "", start: "", expiry: "", notes: "" },
+    { id: "G4", floor: "Ground Floor", status: "vacant", shop: "Ground Shop 4", tenant: "", phone: "", rent: 12000, advance: 40000, kseb: "", idProof: "", start: "", expiry: "", notes: "" }
+  ];
+
+  function getCurrentMonthKey() {
+    const d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+  }
+
+  let state = safeLoad() || {
+    rooms: defaultRooms,
+    payments: {}, // { "2026-11": { "G1": { amount, date, mode, collector, ref } } }
+    expenses: [],
+    collectors: ["Najeeba", "Bank Direct", "Najeeb"],
+    role: "najeeba",
+    unlockedAbroad: false,
+    selectedMonth: getCurrentMonthKey(),
+    activeTab: "floors"
+  };
+
+  if (!state.selectedMonth) state.selectedMonth = getCurrentMonthKey();
+  if (!state.collectors || !state.collectors.length) state.collectors = ["Najeeba", "Bank Direct", "Najeeb"];
+
+  function persist() {
+    safeSave(state);
+  }
+
+  function showToast(msg) {
+    const el = document.getElementById("toast");
+    el.textContent = msg;
+    el.classList.remove("hidden");
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.add("hidden"), 2600);
+  }
+
+  function canEdit() {
+    if (state.role === "najeeba" || state.unlockedAbroad) return true;
+    showToast("Monitor Mode active — tap 'Enable Edits' at top to modify.");
+    return false;
+  }
+
+  function formatINR(num) {
+    return "₹" + Number(num || 0).toLocaleString("en-IN");
+  }
+
+  function populateMonths() {
+    const sel = document.getElementById("monthSelect");
+    const now = new Date();
+    const options = [];
+    for (let i = -6; i <= 3; i++) {
+      const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+      const val = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+      const label = d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+      options.push(`<option value="${val}" ${val === state.selectedMonth ? "selected" : ""}>${label}</option>`);
+    }
+    sel.innerHTML = options.join("");
+  }
+
+  function getMonthPayments() {
+    return state.payments[state.selectedMonth] || {};
+  }
+
+  function renderKPIs() {
+    const monthPay = getMonthPayments();
+    let expected = 0;
+    let collected = 0;
+    let najeebaCollected = 0;
+
+    state.rooms.forEach(r => {
+      if (r.status === "occupied") {
+        expected += Number(r.rent || 0);
+        const p = monthPay[r.id];
+        if (p && Number(p.amount) > 0) {
+          collected += Number(p.amount);
+          if ((p.collector || "Najeeba") === "Najeeba") {
+            najeebaCollected += Number(p.amount);
+          }
+        }
+      }
+    });
+
+    const pending = Math.max(0, expected - collected);
+    const monthExpensesByNajeeba = state.expenses
+      .filter(e => e.date && e.date.startsWith(state.selectedMonth) && (e.paidBy || "Najeeba") === "Najeeba")
+      .reduce((sum, e) => sum + Number(e.amount || 0), 0);
+    const netWithNajeeba = najeebaCollected - monthExpensesByNajeeba;
+
+    document.getElementById("kpiGrid").innerHTML = `
+      <div class="kpi-card">
+        <div class="kpi-label">Expected Rent</div>
+        <div class="kpi-val">${formatINR(expected)}</div>
+        <div class="kpi-sub">${state.rooms.filter(r => r.status === "occupied").length} rented • 1 family</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Collected</div>
+        <div class="kpi-val text-emerald">${formatINR(collected)}</div>
+        <div class="kpi-sub">Selected billing month</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Pending Dues</div>
+        <div class="kpi-val text-amber">${formatINR(pending)}</div>
+        <div class="kpi-sub">Excludes rent-free G2</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Net w/ Najeeba</div>
+        <div class="kpi-val text-indigo">${formatINR(netWithNajeeba)}</div>
+        <div class="kpi-sub">Collected − Bills paid</div>
+      </div>
+    `;
+  }
+
+  function renderRoomCard(r) {
+    const monthPay = getMonthPayments();
+    const payment = monthPay[r.id];
+    const isPaid = payment && Number(payment.amount) >= Number(r.rent || 0) && Number(r.rent || 0) > 0;
+
+    let cardClass = "status-vacant";
+    let badgeHtml = `<span class="badge badge-vacant">Vacant</span>`;
+
+    if (r.status === "family") {
+      cardClass = "status-family";
+      badgeHtml = `<span class="badge badge-family">Family / Rent-Free</span>`;
+    } else if (r.status === "occupied") {
+      if (isPaid) {
+        cardClass = "status-occupied";
+        badgeHtml = `<span class="badge badge-paid">Paid (${payment.collector || "Najeeba"})</span>`;
+      } else {
+        cardClass = "status-due";
+        badgeHtml = `<span class="badge badge-due">Rent Due</span>`;
+      }
+    }
+
+    let actionButtons = "";
+    if (r.status === "family") {
+      actionButtons = `
+        <button type="button" class="btn btn-indigo" data-action="convert-card-to-rent" data-id="${r.id}">Open for Rent</button>
+        <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Details</button>
+      `;
+    } else if (r.status === "occupied") {
+      actionButtons = `
+        <button type="button" class="btn btn-emerald" data-action="open-rent" data-id="${r.id}">${isPaid ? "Edit Receipt" : "Log Rent"}</button>
+        <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Details</button>
+        ${r.phone ? `<button type="button" class="btn btn-amber" data-action="remind-tenant" data-id="${r.id}">WhatsApp</button>` : ""}
+      `;
+    } else {
+      actionButtons = `
+        <button type="button" class="btn btn-primary" data-action="open-room" data-id="${r.id}">+ Assign Tenant</button>
+      `;
+    }
+
+    return `
+      <div class="room-card ${cardClass}">
+        <div class="room-top">
+          <div>
+            <span class="room-id">${r.id}</span>
+            <div class="room-shop">${r.shop || r.id}</div>
+            <div class="room-tenant">${r.tenant ? r.tenant : (r.status === "vacant" ? "Available for lease" : "No name added")}</div>
+          </div>
+          ${badgeHtml}
+        </div>
+        <div class="room-meta">
+          <span><strong>Rent:</strong> ${r.status === "family" ? "₹0 (Rent-Free)" : formatINR(r.rent) + "/mo"}</span>
+          ${r.kseb ? `<span><strong>KSEB:</strong> ${r.kseb}</span>` : ""}
+          ${r.expiry ? `<span><strong>Exp:</strong> ${r.expiry}</span>` : ""}
+        </div>
+        <div class="room-actions">
+          ${actionButtons}
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFloors() {
+    const ff = state.rooms.filter(r => r.id.startsWith("F"));
+    const gf = state.rooms.filter(r => r.id.startsWith("G"));
+    document.getElementById("firstFloorGrid").innerHTML = ff.map(renderRoomCard).join("");
+    document.getElementById("groundFloorGrid").innerHTML = gf.map(renderRoomCard).join("");
+  }
+
+  function renderRentLedger() {
+    const monthPay = getMonthPayments();
+    const rows = state.rooms.map(r => {
+      if (r.status === "family") {
+        return `
+          <div class="list-row">
+            <div>
+              <strong>${r.id} • ${r.shop}</strong>
+              <div style="font-size:12px; color:var(--indigo);">Owner / Family Use — Excluded from Rent</div>
+            </div>
+            <button type="button" class="btn btn-indigo" data-action="convert-card-to-rent" data-id="${r.id}">Open for Rent</button>
+          </div>
+        `;
+      }
+      if (r.status === "vacant") {
+        return `
+          <div class="list-row">
+            <div>
+              <strong>${r.id} • ${r.shop}</strong>
+              <div style="font-size:12px; color:var(--muted);">Vacant (${formatINR(r.rent)}/mo asking)</div>
+            </div>
+            <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Assign</button>
+          </div>
+        `;
+      }
+      const p = monthPay[r.id];
+      const paid = p && Number(p.amount) > 0;
+      return `
+        <div class="list-row">
+          <div>
+            <strong>${r.id} • ${r.shop}</strong>
+            <div style="font-size:12px; color:var(--muted);">
+              ${paid ? `Paid ${formatINR(p.amount)} via ${p.mode} (${p.collector}) on ${p.date}` : `Due: ${formatINR(r.rent)}`}
+            </div>
+          </div>
+          <button type="button" class="btn ${paid ? "" : "btn-emerald"}" data-action="open-rent" data-id="${r.id}">
+            ${paid ? "Receipt" : "Collect"}
+          </button>
+        </div>
+      `;
+    }).join("");
+    document.getElementById("rentLedgerList").innerHTML = rows;
+  }
+
+  function renderExpenses() {
+    if (!state.expenses.length) {
+      document.getElementById("expenseList").innerHTML = `<p style="font-size:13px; color:var(--muted);">No Panchayat taxes, KSEB bills, or maintenance expenses logged yet. Tap <strong>+ Add Bill / Tax</strong> above.</p>`;
+      return;
+    }
+    document.getElementById("expenseList").innerHTML = state.expenses.slice().reverse().map((e, idx) => {
+      const realIdx = state.expenses.length - 1 - idx;
+      return `
+        <div class="list-row">
+          <div>
+            <strong>${e.category}</strong> <span class="sec-badge">${e.room}</span>
+            <div style="font-size:12px; color:var(--muted);">${e.date} • Paid by ${e.paidBy} ${e.note ? "• " + e.note : ""}</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <strong>${formatINR(e.amount)}</strong>
+            <button type="button" class="btn btn-danger" data-action="delete-expense" data-idx="${realIdx}">Del</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderAlerts() {
+    const monthPay = getMonthPayments();
+    const items = [];
+    state.rooms.forEach(r => {
+      if (r.status === "occupied") {
+        const p = monthPay[r.id];
+        if (!p || Number(p.amount) < Number(r.rent || 0)) {
+          items.push(`
+            <div class="list-row">
+              <div>
+                <strong>${r.id} • ${r.shop}</strong>
+                <div style="font-size:12px; color:var(--amber);">Pending Rent: ${formatINR(r.rent)} for ${state.selectedMonth}</div>
+              </div>
+              <button type="button" class="btn btn-amber" data-action="remind-tenant" data-id="${r.id}">WhatsApp</button>
+            </div>
+          `);
+        }
+      }
+      if (r.expiry) {
+        const days = Math.ceil((new Date(r.expiry) - new Date()) / 86400000);
+        if (days <= 60) {
+          items.push(`
+            <div class="list-row">
+              <div>
+                <strong>${r.id} • Agreement ${days < 0 ? "Expired" : "Expiring Soon"}</strong>
+                <div style="font-size:12px; color:var(--red);">Expiry date: ${r.expiry} (${days} days)</div>
+              </div>
+              <button type="button" class="btn" data-action="open-room" data-id="${r.id}">Renew</button>
+            </div>
+          `);
+        }
+      }
+    });
+    document.getElementById("alertsList").innerHTML = items.length
+      ? items.join("")
+      : `<p style="font-size:13px; color:var(--emerald); font-weight:600;">All rented rooms are up to date and no agreements are expiring within 60 days.</p>`;
+  }
+
+  function renderCollectorsModal() {
+    document.getElementById("collectorsList").innerHTML = state.collectors.map((name, i) => `
+      <div class="list-row">
+        <strong>${name} ${i === 0 ? '<span class="sec-badge">Default</span>' : ""}</strong>
+        ${i === 0 ? "" : `<button type="button" class="btn btn-danger" data-action="remove-collector" data-idx="${i}">Remove</button>`}
+      </div>
+    `).join("");
+  }
+
+  function renderAll() {
+    document.querySelectorAll(".role-btn").forEach(btn => {
+      const isRole = btn.dataset.role === state.role;
+      btn.classList.toggle("active", isRole);
+      btn.classList.toggle("abroad", isRole && state.role === "najeeb");
+    });
+
+    const banner = document.getElementById("monitorBanner");
+    if (state.role === "najeeb" && !state.unlockedAbroad) {
+      banner.classList.remove("hidden");
+    } else {
+      banner.classList.add("hidden");
+    }
+
+    ["floors", "rent", "taxes", "alerts"].forEach(t => {
+      document.getElementById("tab-" + t).classList.toggle("hidden", state.activeTab !== t);
+    });
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.tab === state.activeTab);
+    });
+
+    renderKPIs();
+    renderFloors();
+    renderRentLedger();
+    renderExpenses();
+    renderAlerts();
+  }
+
+  function openRoomModal(roomId, autoConvertToRent) {
+    if (!canEdit()) return;
+    const r = state.rooms.find(x => x.id === roomId);
+    if (!r) return;
+
+    document.getElementById("editRoomId").value = r.id;
+    document.getElementById("roomModalTitle").textContent = `${r.id} (${r.floor}) — Details`;
+    document.getElementById("editStatus").value = autoConvertToRent ? "vacant" : r.status;
+    document.getElementById("editShop").value = autoConvertToRent ? "" : (r.shop || "");
+    document.getElementById("editTenant").value = autoConvertToRent ? "" : (r.tenant || "");
+    document.getElementById("editPhone").value = autoConvertToRent ? "" : (r.phone || "");
+    document.getElementById("editRent").value = autoConvertToRent ? 12000 : (r.rent || 0);
+    document.getElementById("editAdvance").value = autoConvertToRent ? 40000 : (r.advance || 0);
+    document.getElementById("editKseb").value = r.kseb || "";
+    document.getElementById("editIdProof").value = autoConvertToRent ? "" : (r.idProof || "");
+    document.getElementById("editStart").value = autoConvertToRent ? "" : (r.start || "");
+    document.getElementById("editExpiry").value = autoConvertToRent ? "" : (r.expiry || "");
+
+    let notes = r.notes || "";
+    if (autoConvertToRent) {
+      const tag = "Opened for commercial rent (Previously Moosa General Store - Family Use)";
+      notes = notes ? notes + "\n" + tag : tag;
+    }
+    document.getElementById("editNotes").value = notes;
+
+    document.getElementById("familyConvertBox").classList.toggle("hidden", r.status !== "family" || autoConvertToRent);
+    document.getElementById("roomModal").classList.remove("hidden");
+    if (autoConvertToRent) {
+      showToast("G2 switched to Vacant — set rent & save.");
+      setTimeout(() => document.getElementById("editRent").focus(), 100);
+    }
+  }
+
+  function openRentModal(roomId) {
+    if (!canEdit()) return;
+    const r = state.rooms.find(x => x.id === roomId);
+    if (!r) return;
+    const existing = getMonthPayments()[roomId];
+
+    document.getElementById("rentRoomId").value = r.id;
+    document.getElementById("rentModalTitle").textContent = `${r.id} • ${r.shop} (${state.selectedMonth})`;
+    document.getElementById("rentAmount").value = existing ? existing.amount : (r.rent || 0);
+    document.getElementById("rentDate").value = existing ? existing.date : new Date().toISOString().slice(0, 10);
+    document.getElementById("rentMode").value = existing ? existing.mode : "UPI / GPay";
+    document.getElementById("rentRef").value = existing ? (existing.ref || "") : "";
+
+    const sel = document.getElementById("rentCollector");
+    sel.innerHTML = state.collectors.map(c => `<option value="${c}" ${(existing ? existing.collector : "Najeeba") === c ? "selected" : ""}>${c}</option>`).join("");
+
+    document.getElementById("rentModal").classList.remove("hidden");
+  }
+
+  // Delegated Click Handler (Works reliably in Acode & Mobile Browsers)
+  document.addEventListener("click", function(e) {
+    const btn = e.target.closest("[data-action]");
+    if (!btn) return;
+    const action = btn.dataset.action;
+
+    if (action === "set-role") {
+      state.role = btn.dataset.role;
+      state.unlockedAbroad = false;
+      persist();
+      renderAll();
+    } else if (action === "unlock-edits") {
+      state.unlockedAbroad = true;
+      renderAll();
+      showToast("Edits unlocked for Najeeb");
+    } else if (action === "switch-tab") {
+      state.activeTab = btn.dataset.tab;
+      persist();
+      renderAll();
+    } else if (action === "open-room") {
+      openRoomModal(btn.dataset.id, false);
+    } else if (action === "convert-card-to-rent") {
+      openRoomModal(btn.dataset.id, true);
+    } else if (action === "convert-family-to-rent") {
+      const id = document.getElementById("editRoomId").value;
+      openRoomModal(id, true);
+    } else if (action === "open-rent") {
+      openRentModal(btn.dataset.id);
+    } else if (action === "close-modal") {
+      document.getElementById(btn.dataset.modal).classList.add("hidden");
+    } else if (action === "clear-rent-payment") {
+      if (!canEdit()) return;
+      const id = document.getElementById("rentRoomId").value;
+      if (state.payments[state.selectedMonth]) {
+        delete state.payments[state.selectedMonth][id];
+      }
+      persist();
+      document.getElementById("rentModal").classList.add("hidden");
+      renderAll();
+      showToast("Marked as unpaid");
+    } else if (action === "mark-all-paid") {
+      if (!canEdit()) return;
+      if (!state.payments[state.selectedMonth]) state.payments[state.selectedMonth] = {};
+      const today = new Date().toISOString().slice(0, 10);
+      state.rooms.forEach(r => {
+        if (r.status === "occupied" && !state.payments[state.selectedMonth][r.id]) {
+          state.payments[state.selectedMonth][r.id] = {
+            amount: r.rent,
+            date: today,
+            mode: "UPI / GPay",
+            collector: "Najeeba",
+            ref: "Bulk marked"
+          };
+        }
+      });
+      persist();
+      renderAll();
+      showToast("All rented rooms marked paid");
+    } else if (action === "open-expense-modal") {
+      if (!canEdit()) return;
+      document.getElementById("expDate").value = new Date().toISOString().slice(0, 10);
+      document.getElementById("expPaidBy").innerHTML = state.collectors.map(c => `<option value="${c}">${c}</option>`).join("");
+      document.getElementById("expenseModal").classList.remove("hidden");
+    } else if (action === "delete-expense") {
+      if (!canEdit()) return;
+      state.expenses.splice(Number(btn.dataset.idx), 1);
+      persist();
+      renderAll();
+      showToast("Bill deleted");
+    } else if (action === "open-collectors") {
+      if (!canEdit()) return;
+      renderCollectorsModal();
+      document.getElementById("collectorsModal").classList.remove("hidden");
+    } else if (action === "add-collector") {
+      const inp = document.getElementById("newCollectorInput");
+      const val = inp.value.trim();
+      if (val && !state.collectors.includes(val)) {
+        state.collectors.push(val);
+        inp.value = "";
+        persist();
+        renderCollectorsModal();
+        showToast("Collector added");
+      }
+    } else if (action === "remove-collector") {
+      state.collectors.splice(Number(btn.dataset.idx), 1);
+      persist();
+      renderCollectorsModal();
+    } else if (action === "open-backup") {
+      document.getElementById("backupModal").classList.remove("hidden");
+    } else if (action === "export-json") {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `Crescent-Building-Villiappally-${state.selectedMonth}.json`;
+      a.click();
+    } else if (action === "export-csv") {
+      const monthPay = getMonthPayments();
+      const lines = ["Room,Floor,Status,Shop,Tenant,Phone,Rent,PaidAmount,Collector,KSEB"];
+      state.rooms.forEach(r => {
+        const p = monthPay[r.id];
+        lines.push([r.id, r.floor, r.status, `"${r.shop}"`, `"${r.tenant}"`, r.phone, r.rent, p ? p.amount : 0, p ? p.collector : "", r.kseb].join(","));
+      });
+      const blob = new Blob([lines.join("\n")], { type: "text/csv" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `Crescent-Building-${state.selectedMonth}.csv`;
+      a.click();
+    } else if (action === "remind-tenant") {
+      const r = state.rooms.find(x => x.id === btn.dataset.id);
+      if (!r) return;
+      const phone = (r.phone || "").replace(/\D/g, "");
+      const msg = encodeURIComponent(`Assalamu Alaikum ${r.tenant || ""}, friendly reminder for Crescent Building (${r.id} - ${r.shop}) rent of ${formatINR(r.rent)} for ${state.selectedMonth}. Thank you.`);
+      window.open(`https://wa.me/${phone.length === 10 ? "91" + phone : phone}?text=${msg}`, "_blank");
+    } else if (action === "send-report") {
+      const monthPay = getMonthPayments();
+      let lines = [`*Crescent Building, Villiappally (${state.selectedMonth})*`];
+      state.rooms.forEach(r => {
+        if (r.status === "family") {
+          lines.push(`• ${r.id}: ${r.shop} (Family / Rent-Free)`);
+        } else if (r.status === "vacant") {
+          lines.push(`• ${r.id}: Vacant`);
+        } else {
+          const p = monthPay[r.id];
+          lines.push(`• ${r.id} (${r.shop}): ${p ? "Paid " + formatINR(p.amount) + " (" + p.collector + ")" : "DUE " + formatINR(r.rent)}`);
+        }
+      });
+      window.open(`https://wa.me/?text=${encodeURIComponent(lines.join("\n"))}`, "_blank");
+    }
+  });
+
+  // Form Submissions
+  document.getElementById("roomForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!canEdit()) return;
+    const id = document.getElementById("editRoomId").value;
+    const r = state.rooms.find(x => x.id === id);
+    if (!r) return;
+
+    r.status = document.getElementById("editStatus").value;
+    r.shop = document.getElementById("editShop").value.trim() || r.id;
+    r.tenant = document.getElementById("editTenant").value.trim();
+    r.phone = document.getElementById("editPhone").value.trim();
+    r.rent = r.status === "family" ? 0 : Number(document.getElementById("editRent").value || 0);
+    r.advance = Number(document.getElementById("editAdvance").value || 0);
+    r.kseb = document.getElementById("editKseb").value.trim();
+    r.idProof = document.getElementById("editIdProof").value.trim();
+    r.start = document.getElementById("editStart").value;
+    r.expiry = document.getElementById("editExpiry").value;
+    r.notes = document.getElementById("editNotes").value.trim();
+
+    persist();
+    document.getElementById("roomModal").classList.add("hidden");
+    renderAll();
+    showToast(`${r.id} saved`);
+  });
+
+  document.getElementById("rentForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!canEdit()) return;
+    const id = document.getElementById("rentRoomId").value;
+    if (!state.payments[state.selectedMonth]) state.payments[state.selectedMonth] = {};
+    state.payments[state.selectedMonth][id] = {
+      amount: Number(document.getElementById("rentAmount").value || 0),
+      date: document.getElementById("rentDate").value,
+      mode: document.getElementById("rentMode").value,
+      collector: document.getElementById("rentCollector").value,
+      ref: document.getElementById("rentRef").value.trim()
+    };
+    persist();
+    document.getElementById("rentModal").classList.add("hidden");
+    renderAll();
+    showToast(`Rent recorded for ${id}`);
+  });
+
+  document.getElementById("expenseForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!canEdit()) return;
+    state.expenses.push({
+      category: document.getElementById("expCategory").value,
+      room: document.getElementById("expRoom").value,
+      amount: Number(document.getElementById("expAmount").value || 0),
+      date: document.getElementById("expDate").value,
+      paidBy: document.getElementById("expPaidBy").value,
+      note: document.getElementById("expNote").value.trim()
+    });
+    persist();
+    document.getElementById("expenseModal").classList.add("hidden");
+    renderAll();
+    showToast("Tax / Bill saved");
+  });
+
+  document.getElementById("monthSelect").addEventListener("change", function(e) {
+    state.selectedMonth = e.target.value;
+    persist();
+    renderAll();
+  });
+
+  document.getElementById("importJsonInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        const parsed = JSON.parse(ev.target.result);
+        if (parsed && Array.isArray(parsed.rooms)) {
+          state = parsed;
+          persist();
+          populateMonths();
+          renderAll();
+          document.getElementById("backupModal").classList.add("hidden");
+          showToast("Backup restored successfully");
+        }
+      } catch (err) {
+        showToast("Invalid JSON backup file");
+      }
+    };
+    reader.readAsText(file);
+  });
+
+  populateMonths();
+  renderAll();
+})();if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  navigator.serviceWorker.register("./sw.js").catch(() => {});
+}
+
+</script>
+</body>
+</html>
